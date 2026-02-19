@@ -26,10 +26,9 @@ I value understanding *why* an exploit works, not just how to reproduce it.
 - 🕷️ Raspberry Pi-based security research platform  
 - 🧠 Expanding hands-on lab environments  
 
-### Tiny mfind (C)
+### mfind (C)
 
-A small reimplementation of the Unix `find` command written in C.  
-Includes recursive traversal, basic filtering, and automated tests.
+A small reimplementation of the Unix `find` utility written in C.
 
 🔗 https://github.com/hamsterdam33/CProjekt.git
 
