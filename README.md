@@ -48,13 +48,23 @@ I follow a structured assessment workflow:
 
 ## Tools & Technologies
 
+### Programming & Scripting
+- Python
+- C
+- Java
+- Bash
+- SQL
+
+### Security & Analysis
 - Kali Linux
 - Nmap
 - Burp Suite
 - Wireshark
+
+### Systems
 - Linux
 - Git
-- Python
+
 
 ---
 
