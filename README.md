@@ -26,11 +26,13 @@ I value understanding *why* an exploit works, not just how to reproduce it.
 - 🕷️ Raspberry Pi-based security research platform  
 - 🧠 Expanding hands-on lab environments  
 
+---
+
+## Selected Projects
+
 ### mfind (C)
 
-A small reimplementation of the Unix `find` utility written in C.
-
-🔗 https://github.com/hamsterdam33/CProjekt.git
+A simplified reimplementation of the Unix `find` utility in C, developed as part of a university systems programming project.
 
 ---
 
