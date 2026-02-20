@@ -30,9 +30,19 @@ I value understanding *why* an exploit works, not just how to reproduce it.
 
 ## Selected Projects
 
+### 🔐 pwgen-lite — Secure CLI Password Generator  
+A small Python tool exploring secure randomness, deterministic RNG design,
+and brute-force modeling.
+
+Includes entropy estimation, HMAC-based deterministic mode, and a tested CLI interface.
+
+[View pwgen-lite](https://github.com/Denis-Krueger-labs/pwgen-lite)
+
 ### mfind (C)
 
 A simplified reimplementation of the Unix `find` utility in C, developed as part of a university systems programming project.
+
+[View mfind](https://github.com/Denis-Krueger-labs/CProjekt)
 
 ---
 
