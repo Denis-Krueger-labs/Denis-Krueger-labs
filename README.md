@@ -1,21 +1,21 @@
 # Hi, I'm Denis Krüger
 
-🎓 Information Security Student at THWS Würzburg (4th Semester)  
-🛡️ Focused on structured security analysis and practical lab environments  
+🎓 Information Security student specializing in offensive security, exploit analysis, and structured attack methodology. 
+🛡️ Focused on understanding attack surfaces, chaining vulnerabilities, and privilege escalation in controlled lab environments.
 
 ---
 
 ## About Me
 
-I approach cybersecurity through methodical analysis, controlled experimentation, and continuous skill development.  
+I approach offensive security through structured reconnaissance, deep service enumeration, and controlled exploitation in lab environments.
+My goal is to understand not only how vulnerabilities are exploited, but how attack chains are constructed end-to-end 
 
 My interests include:
-- Offensive Security
-- Privilege Escalation Techniques
-- Web Application Security
-- IoT & Embedded System Security
-- Wireless Security Research
-
+- Web Application Exploitation
+- Linux & Windows Privilege Escalation
+- Active Directory Fundamentals
+- Wireless & Network Attack Surface Analysis
+- Embedded & IoT Security
 I value understanding *why* an exploit works, not just how to reproduce it.
 
 ---
@@ -52,7 +52,7 @@ Ongoing structured challenge-based learning and offensive security practice.
 
 ---
 
-## Methodology
+## Security Assessment Workflow
 
 I follow a structured assessment workflow:
 1. Reconnaissance  
@@ -60,10 +60,18 @@ I follow a structured assessment workflow:
 3. Vulnerability Identification  
 4. Controlled Exploitation  
 5. Privilege Escalation  
-6. Defensive Analysis  
+6. Post-Exploitation Analysis
+7. Documentation & defensive insight extraction
 
 ---
 
+## Focus Areas
+- Enumeration discipline and attack surface mapping
+- Privilege escalation across Linux environments
+- Web vulnerability chaining
+- Controlled lab-based adversarial testing
+
+---
 ## Tools & Technologies
 
 ### Programming & Scripting
