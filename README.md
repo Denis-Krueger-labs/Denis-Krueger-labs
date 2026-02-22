@@ -1,7 +1,7 @@
 # Hi, I'm Denis Krüger
 
-🎓 Information Security student specializing in offensive security, exploit analysis, and structured attack methodology. 
-🛡️ Focused on understanding attack surfaces, chaining vulnerabilities, and privilege escalation in controlled lab environments.
+- Information Security student specializing in offensive security, exploit analysis, and structured attack methodology. 
+- Focused on understanding attack surfaces, chaining vulnerabilities, and privilege escalation in controlled lab environments.
 
 ---
 
@@ -22,15 +22,15 @@ I value understanding *why* an exploit works, not just how to reproduce it.
 
 ## Current Projects
 
-- 📚 Structured TryHackMe technical writeups  
-- 🕷️ Raspberry Pi-based security research platform  
-- 🧠 Expanding hands-on lab environments  
+- Structured TryHackMe technical writeups  
+- Raspberry Pi-based security research platform  
+- Expanding hands-on lab environments  
 
 ---
 
 ## Selected Projects
 
-### 🔐 pwgen-lite — Secure CLI Password Generator  
+### pwgen-lite — Secure CLI Password Generator  
 A small Python tool exploring secure randomness, deterministic RNG design,
 and brute-force modeling.
 
