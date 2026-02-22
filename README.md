@@ -47,7 +47,13 @@ A simplified reimplementation of the Unix `find` utility in C, developed as part
 ---
 
 ## TryHackMe
-<img src="https://tryhackme-badges.s3.amazonaws.com/0N1S3C.png" alt="Your Image Badge" />
+
+<a href="https://tryhackme.com/p/0N1S3C">
+  <img src="https://tryhackme-badges.s3.amazonaws.com/0N1S3C.png?v=2" 
+       alt="TryHackMe Badge" 
+       width="350" />
+</a>
+
 Ongoing structured challenge-based learning and offensive security practice.
 
 ---
