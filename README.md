@@ -34,7 +34,7 @@ Implements `secrets`-based generation, HMAC-SHA256 deterministic mode with rejec
 sampling to avoid modulo bias, entropy estimation, and brute-force time modelling.
 Includes a full pytest suite and proper exit codes.
 
-### [mfind](https://github.com/Denis-Krueger-labs/CProjekt) — C
+### [mfind](https://github.com/Denis-Krueger-labs/mfind) — C
 Simplified reimplementation of the Unix `find` utility, written in C as part of a
 university systems programming project.
 
