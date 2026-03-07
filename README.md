@@ -1,102 +1,85 @@
 # Hi, I'm Denis Krüger
 
-- Information Security student specializing in offensive security, exploit analysis, and structured attack methodology. 
-- Focused on understanding attack surfaces, chaining vulnerabilities, and privilege escalation in controlled lab environments.
+Information Security student @ THWS Würzburg, focused on offensive security
+and understanding how attack chains are constructed end-to-end.
+
+I value understanding *why* an exploit works — not just how to reproduce it.
 
 ---
 
-## About Me
+## About
 
-I approach offensive security through structured reconnaissance, deep service enumeration, and controlled exploitation in lab environments.
-My goal is to understand not only how vulnerabilities are exploited, but how attack chains are constructed end-to-end 
+I approach security through structured reconnaissance, deep enumeration,
+and controlled exploitation in lab environments.
 
-My interests include:
+Currently working through TryHackMe and HackTheBox alongside my studies,
+with a focus on building practical skills in web application testing,
+privilege escalation, and attack documentation.
+
+**Interests:**
 - Web Application Exploitation
 - Linux & Windows Privilege Escalation
-- Active Directory Fundamentals
 - Wireless & Network Attack Surface Analysis
 - Embedded & IoT Security
-I value understanding *why* an exploit works, not just how to reproduce it.
+- Active Directory Fundamentals
 
 ---
 
-## Current Projects
+## Projects
 
-- Structured TryHackMe technical writeups  
-- Raspberry Pi-based security research platform  
-- Expanding hands-on lab environments  
+### [pwgen-lite](https://github.com/Denis-Krueger-labs/pwgen-lite) — Python
+Minimal CLI password generator built around secure randomness and cryptographic correctness.
 
----
+Implements `secrets`-based generation, HMAC-SHA256 deterministic mode with rejection
+sampling to avoid modulo bias, entropy estimation, and brute-force time modelling.
+Includes a full pytest suite and proper exit codes.
 
-## Selected Projects
+### [mfind](https://github.com/Denis-Krueger-labs/CProjekt) — C
+Simplified reimplementation of the Unix `find` utility, written in C as part of a
+university systems programming project.
 
-### pwgen-lite — Secure CLI Password Generator  
-A small Python tool exploring secure randomness, deterministic RNG design,
-and brute-force modeling.
+Supports recursive directory traversal, name/type/size/depth filtering, and optional
+parallel traversal across start directories using POSIX threads.
+Verified memory-safe with Valgrind (zero leaks).
 
-Includes entropy estimation, HMAC-based deterministic mode, and a tested CLI interface.
-
-[View pwgen-lite](https://github.com/Denis-Krueger-labs/pwgen-lite)
-
-### mfind (C)
-
-A simplified reimplementation of the Unix `find` utility in C, developed as part of a university systems programming project.
-
-[View mfind](https://github.com/Denis-Krueger-labs/CProjekt)
+### [tryhackme-writeups](https://github.com/Denis-Krueger-labs/tryhackme-writeups)
+Structured technical reports documenting lab-based security assessments.
+Each writeup follows a standardized methodology covering reconnaissance, exploitation,
+privilege escalation, and defensive considerations.
 
 ---
 
-## TryHackMe
+## Assessment Workflow
+
+```
+Reconnaissance → Enumeration → Vulnerability ID → Exploitation → Privesc → Documentation
+```
+
+---
+
+## Practice Platforms
 
 <a href="https://tryhackme.com/p/0N1S3C">
-  <img src="https://tryhackme-badges.s3.amazonaws.com/0N1S3C.png?v=2" 
-       alt="TryHackMe Badge" 
+  <img src="https://tryhackme-badges.s3.amazonaws.com/0N1S3C.png?v=1"
+       alt="TryHackMe Badge"
+       width="350" />
+</a>
+<br><br>
+<a href="https://app.hackthebox.com/public/users/3188353">
+  <img src="https://www.hackthebox.eu/badge/image/3188353"
+       alt="HackTheBox Badge"
        width="350" />
 </a>
 
-Ongoing structured challenge-based learning and offensive security practice.
-
 ---
 
-## Security Assessment Workflow
-
-I follow a structured assessment workflow:
-1. Reconnaissance  
-2. Service Enumeration  
-3. Vulnerability Identification  
-4. Controlled Exploitation  
-5. Privilege Escalation  
-6. Post-Exploitation Analysis
-7. Documentation & defensive insight extraction
-
----
-
-## Focus Areas
-- Enumeration discipline and attack surface mapping
-- Privilege escalation across Linux environments
-- Web vulnerability chaining
-- Controlled lab-based adversarial testing
-
----
 ## Tools & Technologies
 
-### Programming & Scripting
-- Python
-- C
-- Java
-- Bash
-- SQL
+**Languages:** Python · C · Bash · Java · SQL
 
-### Security & Analysis
-- Kali Linux
-- Nmap
-- Burp Suite
-- Wireshark
+**Security:** Kali Linux · Burp Suite · Nmap · Gobuster · ffuf · SQLMap · Metasploit · Wireshark
 
-### Systems
-- Linux
-- Git
-
+**Systems:** Linux · Git
 
 ---
 
