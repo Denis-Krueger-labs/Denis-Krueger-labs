@@ -42,7 +42,7 @@ Supports recursive directory traversal, name/type/size/depth filtering, and opti
 parallel traversal across start directories using POSIX threads.
 Verified memory-safe with Valgrind (zero leaks).
 
-### [tryhackme-writeups](https://github.com/Denis-Krueger-labs/tryhackme-writeups)
+### [writeups](https://github.com/Denis-Krueger-labs/writeups)
 Structured technical reports documenting lab-based security assessments.
 Each writeup follows a standardized methodology covering reconnaissance, exploitation,
 privilege escalation, and defensive considerations.
