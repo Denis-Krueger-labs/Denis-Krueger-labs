@@ -3,7 +3,7 @@
 Information Security student @ THWS Würzburg, focused on offensive security
 and understanding how attack chains are constructed end-to-end.
 
-I value understanding *why* an exploit works — not just how to reproduce it.
+I value understanding *why* an exploit works  not just how to reproduce it.
 
 ---
 
