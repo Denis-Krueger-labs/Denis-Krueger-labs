@@ -27,14 +27,14 @@ privilege escalation, and attack documentation.
 
 ## Projects
 
-### [pwgen-lite](https://github.com/Denis-Krueger-labs/pwgen-lite) — Python
+### [pwgen-lite](https://github.com/Denis-Krueger-labs/pwgen-lite) - Python
 Minimal CLI password generator built around secure randomness and cryptographic correctness.
 
 Implements `secrets`-based generation, HMAC-SHA256 deterministic mode with rejection
 sampling to avoid modulo bias, entropy estimation, and brute-force time modelling.
 Includes a full pytest suite and proper exit codes.
 
-### [mfind](https://github.com/Denis-Krueger-labs/mfind) — C
+### [mfind](https://github.com/Denis-Krueger-labs/mfind) - C
 Simplified reimplementation of the Unix `find` utility, written in C as part of a
 university systems programming project.
 
