@@ -1,0 +1,114 @@
+// ─── Reset & Base ───────────────────────────────────────────
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: $bg-base;
+  color: $text-primary;
+  font-family: $font-body;
+  font-weight: 300;
+  line-height: $line-height-base;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ─── Skip navigation (accessibility) ────────────────────────
+
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: $space-md;
+  background: $accent-primary;
+  color: $text-primary;
+  padding: $space-sm $space-md;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  z-index: $z-overlay;
+  text-decoration: none;
+
+  &:focus {
+    top: $space-sm;
+  }
+}
+
+// ─── Links ──────────────────────────────────────────────────
+
+a {
+  color: $text-accent;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $accent-secondary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent-primary;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+  }
+}
+
+// ─── Code ───────────────────────────────────────────────────
+
+code {
+  font-family: $font-mono;
+  font-size: 0.875em;
+  color: $accent-secondary;
+  background: $bg-surface;
+  padding: 0.1em 0.35em;
+  border-radius: $radius-sm;
+}
+
+pre {
+  font-family: $font-mono;
+  overflow-x: auto;
+}
+
+// ─── Images ─────────────────────────────────────────────────
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ─── Lists ──────────────────────────────────────────────────
+
+ul, ol {
+  list-style: none;
+}
+
+// ─── Selection ──────────────────────────────────────────────
+
+::selection {
+  background: $accent-dim;
+  color: $text-primary;
+}
+
+// ─── Media: reduce motion ───────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

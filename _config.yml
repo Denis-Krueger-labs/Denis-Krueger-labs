@@ -1,0 +1,42 @@
+title: "0N1S3C"
+description: "Information Security student · offensive security focus — Denis Krüger"
+author: "Denis Krüger"
+handle: "0N1S3C"
+
+# GitHub Pages — set baseurl to repo name if deploying from a project repo.
+# Leave empty if this is username.github.io root repo.
+baseurl: ""
+url: "https://Denis-Krueger-labs.github.io"
+
+# Social / platform config (used in templates)
+github_username: Denis-Krueger-labs
+discord_handle: streetfighter_lp
+tryhackme_url: "https://tryhackme.com/p/0N1S3C"
+hackthebox_url: "https://app.hackthebox.com/public/users/3188353"
+tryhackme_badge: "https://tryhackme-badges.s3.amazonaws.com/0N1S3C.png?v=5"
+hackthebox_badge: "https://www.hackthebox.eu/badge/image/3188353"
+
+# Writeups — update once dedicated writeups site is live
+writeups_url: "https://github.com/Denis-Krueger-labs/writeups"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+sass:
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .git
+  - .gitignore
+  - vendor/

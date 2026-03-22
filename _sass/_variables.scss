@@ -1,0 +1,61 @@
+// ─── Color Palette ──────────────────────────────────────────
+
+$bg-base:          #09090f;       // near-black, slight cool tint
+$bg-surface:       #111119;       // card / section surfaces
+$bg-surface-alt:   #16161f;       // hover state lift
+$bg-terminal:      #0d0d14;       // terminal box background
+
+$accent-primary:   #7c3aed;       // violet — main cyber/gothic color
+$accent-secondary: #2dd4bf;       // teal — links, tags, secondary accents
+$accent-dim:       #4c1d95;       // muted violet for borders and glows
+
+$text-primary:     #e8e8f0;       // off-white, slight cool tint
+$text-secondary:   #8888aa;       // muted for labels, metadata
+$text-muted:       #44445a;       // very muted — dividers, decorative
+$text-accent:      #a78bfa;       // light violet for headings and highlights
+
+$terminal-purple:  #5a00ff;       // terminal prompt color — used ONLY for
+                                  // prompt chars and focus item icons
+
+$border-subtle:    #1e1e2e;       // barely-visible borders
+$border-accent:    #3b1f7a;       // accent-tinted border
+
+// ─── Typography ─────────────────────────────────────────────
+
+$font-mono:   'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
+$font-body:   'Inter', system-ui, -apple-system, sans-serif;
+
+$font-size-base:   16px;
+$line-height-base: 1.7;
+
+// ─── Spacing ────────────────────────────────────────────────
+
+$space-xs:   0.25rem;
+$space-sm:   0.5rem;
+$space-md:   1rem;
+$space-lg:   2rem;
+$space-xl:   4rem;
+$space-2xl:  8rem;
+
+// ─── Layout ─────────────────────────────────────────────────
+
+$container-max:  880px;
+$container-wide: 1100px;
+
+// ─── Borders & Radius ───────────────────────────────────────
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+
+// ─── Transitions ────────────────────────────────────────────
+
+$transition-fast:   150ms ease;
+$transition-normal: 250ms ease;
+
+// ─── Z-index layers ─────────────────────────────────────────
+
+$z-base:    0;
+$z-content: 10;
+$z-header:  100;
+$z-overlay: 200;

@@ -1,0 +1,72 @@
+// ─── Headings ───────────────────────────────────────────────
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-mono;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-primary;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.05rem, 2.5vw, 1.25rem); }
+
+// ─── Section headings ───────────────────────────────────────
+
+.section__heading {
+  font-family: $font-mono;
+  color: $text-accent;
+  margin-bottom: $space-lg;
+  display: flex;
+  align-items: baseline;
+  gap: $space-xs;
+
+  .section__prefix {
+    color: $text-muted;
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+}
+
+// ─── Hero typography ────────────────────────────────────────
+
+.hero__handle {
+  font-family: $font-mono;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  color: $text-primary;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: $space-sm;
+  text-shadow:
+    0 0 40px rgba($accent-primary, 0.4),
+    0 0 100px rgba($accent-primary, 0.15);
+}
+
+.hero__subtitle {
+  font-family: $font-body;
+  font-weight: 300;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  color: $text-secondary;
+  letter-spacing: 0.04em;
+  margin-bottom: $space-lg;
+}
+
+// ─── Terminal box ───────────────────────────────────────────
+
+.terminal-box {
+  display: inline-block;
+  background: $bg-terminal;
+  border: 1px solid rgba($terminal-purple, 0.5);
+  border-radius: $radius-sm;
+  padding: $space-md $space-lg;
+  font-family: $font-mono;
+  font-size: clamp(0.72rem, 1.5vw, 0.88rem);
+  line-height: 1.65;
+  color: $text-primary;
+  text-align: left;
+  white-space: pre;
+  box-shadow:
+    0 0 0 1px rgba($terminal-purple, 0.08),
+    0 4px 32px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba($terminal-purple, 0.03);
+}

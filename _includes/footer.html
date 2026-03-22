@@ -1,0 +1,35 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+
+    <div class="footer-social">
+      <a href="https://github.com/{{ site.github_username }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="footer-link"
+         aria-label="GitHub (opens in new tab)">GitHub</a>
+      <span class="footer-sep" aria-hidden="true">/</span>
+      <a href="{{ site.tryhackme_url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="footer-link"
+         aria-label="TryHackMe (opens in new tab)">TryHackMe</a>
+      <span class="footer-sep" aria-hidden="true">/</span>
+      <a href="{{ site.hackthebox_url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="footer-link"
+         aria-label="HackTheBox (opens in new tab)">HackTheBox</a>
+    </div>
+
+    <p class="footer-meta">
+      <span class="footer-handle">{{ site.handle }}</span>
+      <span class="footer-sep" aria-hidden="true"> · </span>
+      {{ site.author }}
+    </p>
+
+    <p class="footer-ai-disclaimer">
+      This site was designed and refined with AI assistance.
+    </p>
+
+  </div>
+</footer>

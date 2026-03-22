@@ -1,0 +1,296 @@
+// ─── Buttons ────────────────────────────────────────────────
+
+.btn {
+  display: inline-block;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  padding: 0.6em 1.4em;
+  border-radius: $radius-sm;
+  text-decoration: none;
+  transition:
+    background $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &--primary {
+    background: $accent-primary;
+    color: $text-primary;
+    border-color: $accent-primary;
+
+    &:hover {
+      background: lighten($accent-primary, 8%);
+      border-color: lighten($accent-primary, 8%);
+      color: $text-primary;
+      box-shadow: 0 0 20px rgba($accent-primary, 0.45);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $accent-secondary;
+    border-color: $accent-secondary;
+
+    &:hover {
+      background: rgba($accent-secondary, 0.1);
+      color: $text-primary;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $text-secondary;
+    border-color: $border-subtle;
+
+    &:hover {
+      color: $text-accent;
+      border-color: $accent-dim;
+    }
+  }
+}
+
+// ─── Hero contact bar items ──────────────────────────────────
+
+.contact-item {
+  display: flex;
+  gap: $space-xs;
+  align-items: center;
+}
+
+.contact-label {
+  color: $text-muted;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-link,
+.contact-value {
+  color: $text-secondary;
+  transition: color $transition-fast;
+}
+
+.contact-link:hover {
+  color: $text-accent;
+}
+
+// ─── Focus area items ────────────────────────────────────────
+
+.focus__item {
+  display: flex;
+  gap: $space-md;
+  align-items: flex-start;
+  padding: $space-md;
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  transition: border-color $transition-fast, background $transition-fast;
+
+  &:hover {
+    border-color: $border-accent;
+    background: $bg-surface-alt;
+  }
+}
+
+.focus__icon {
+  font-family: $font-mono;
+  color: $terminal-purple;
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.15em;
+}
+
+.focus__title {
+  font-family: $font-mono;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: $text-accent;
+  margin-bottom: $space-xs;
+}
+
+.focus__desc {
+  font-size: 0.78rem;
+  color: $text-secondary;
+  line-height: 1.55;
+}
+
+// ─── Project cards ───────────────────────────────────────────
+
+.project-card {
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  padding: $space-lg;
+  transition: border-color $transition-normal, background $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    background: $bg-surface-alt;
+  }
+}
+
+.project-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $space-sm;
+  margin-bottom: $space-md;
+  flex-wrap: wrap;
+}
+
+.project-card__title {
+  font-family: $font-mono;
+  font-size: 1rem;
+  font-weight: 700;
+
+  a {
+    color: $text-primary;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $text-accent;
+    }
+  }
+}
+
+.project-card__tag {
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  color: $accent-secondary;
+  border: 1px solid rgba($accent-secondary, 0.3);
+  border-radius: $radius-sm;
+  padding: 0.15em 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.project-card__desc {
+  font-size: 0.83rem;
+  color: $text-secondary;
+  line-height: 1.65;
+}
+
+// ─── Workflow chain ──────────────────────────────────────────
+
+.workflow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xs;
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+  min-width: 90px;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $border-accent;
+  }
+}
+
+.workflow-step__number {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  color: $text-muted;
+  letter-spacing: 0.12em;
+}
+
+.workflow-step__label {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  color: $text-accent;
+  text-align: center;
+}
+
+.workflow-step__arrow {
+  color: $text-muted;
+  font-family: $font-mono;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0 $space-xs;
+}
+
+// ─── Contact section entries ─────────────────────────────────
+
+.contact__entry {
+  display: flex;
+  gap: $space-lg;
+  align-items: baseline;
+  font-family: $font-mono;
+  font-size: 0.88rem;
+  padding-bottom: $space-md;
+  border-bottom: 1px solid $border-subtle;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.contact__platform {
+  color: $text-muted;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.contact__link {
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $text-accent;
+  }
+}
+
+.contact__value {
+  color: $text-secondary;
+}
+
+// ─── Footer elements ────────────────────────────────────────
+
+.footer-link {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $text-accent;
+  }
+}
+
+.footer-sep {
+  color: $text-muted;
+}
+
+.footer-meta {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-muted;
+}
+
+.footer-handle {
+  color: $text-secondary;
+}
+
+.footer-ai-disclaimer {
+  font-size: 0.68rem;
+  color: $text-muted;
+  font-style: italic;
+  border-top: 1px solid $border-subtle;
+  padding-top: $space-md;
+  width: 100%;
+  text-align: center;
+  margin-top: $space-sm;
+}

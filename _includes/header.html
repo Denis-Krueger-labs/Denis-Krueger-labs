@@ -1,0 +1,21 @@
+<a class="skip-nav" href="#main-content">Skip to content</a>
+
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a class="site-brand" href="{{ '/' | prepend: site.baseurl }}" aria-label="{{ site.title }} — home">
+      {{ site.handle }}
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ '/#about' | prepend: site.baseurl }}" class="nav-link">about</a>
+      <a href="{{ '/#projects' | prepend: site.baseurl }}" class="nav-link">projects</a>
+      <a href="{{ '/#methodology' | prepend: site.baseurl }}" class="nav-link">workflow</a>
+      <a href="{{ '/#contact' | prepend: site.baseurl }}" class="nav-link">contact</a>
+      <a href="{{ site.writeups_url }}"
+         class="nav-link nav-link--external"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Writeups (opens in new tab)">writeups</a>
+    </nav>
+  </div>
+</header>

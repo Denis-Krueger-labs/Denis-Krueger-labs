@@ -1,0 +1,59 @@
+// ─── All animations are gated behind prefers-reduced-motion ─
+
+@media (prefers-reduced-motion: no-preference) {
+
+  // Moth: slow breathing float
+  .hero__moth img {
+    animation: moth-float 7s ease-in-out infinite;
+  }
+
+  // Hero elements: staggered fade-in on load
+  .hero__handle {
+    animation: hero-fade-in 0.8s ease-out both;
+  }
+
+  .hero__subtitle {
+    animation: hero-fade-in 0.8s ease-out 0.15s both;
+  }
+
+  .hero__terminal {
+    animation: hero-fade-in 0.8s ease-out 0.3s both;
+  }
+
+  .hero__actions {
+    animation: hero-fade-in 0.8s ease-out 0.45s both;
+  }
+
+  .hero__contact {
+    animation: hero-fade-in 0.8s ease-out 0.55s both;
+  }
+
+}
+
+// ─── Keyframes ──────────────────────────────────────────────
+
+@keyframes moth-float {
+  0%, 100% {
+    transform: translateY(0px);
+    filter:
+      drop-shadow(0 0 18px rgba(#7c3aed, 0.45))
+      drop-shadow(0 0 55px rgba(#7c3aed, 0.18));
+  }
+  50% {
+    transform: translateY(-14px);
+    filter:
+      drop-shadow(0 0 28px rgba(#7c3aed, 0.6))
+      drop-shadow(0 0 80px rgba(#7c3aed, 0.25));
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,352 @@
+---
+layout: default
+title: Home
+---
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section class="hero" id="hero" aria-label="Hero">
+
+  <div class="hero__moon" aria-hidden="true">
+    <img src="{{ '/assets/img/moon-accent.png' | prepend: site.baseurl }}" alt="" loading="eager">
+  </div>
+
+  <div class="hero__content container">
+
+    <div class="hero__moth">
+      <img src="{{ '/assets/img/moth-logo.png' | prepend: site.baseurl }}"
+           alt="0N1S3C — moth logo"
+           loading="eager">
+    </div>
+
+    <div class="hero__identity">
+      <h1 class="hero__handle">{{ site.handle }}</h1>
+      <p class="hero__subtitle">Offensive security student &middot; Understanding attack chains end-to-end</p>
+    </div>
+
+    <div class="hero__terminal">
+      <pre class="terminal-box" role="img" aria-label="Terminal prompt: information wants to be free">┌──(0N1S3C㉿kali)-[~]
+└─$ information wants to be free...█</pre>
+    </div>
+
+    <nav class="hero__actions" aria-label="Quick links">
+      <a href="{{ site.writeups_url }}"
+         class="btn btn--primary"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="View Writeups (opens in new tab)">View Writeups</a>
+      <a href="https://github.com/{{ site.github_username }}"
+         class="btn btn--secondary"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="GitHub profile (opens in new tab)">GitHub</a>
+      <a href="#about" class="btn btn--ghost">About Me</a>
+    </nav>
+
+    <div class="hero__contact" aria-label="Contact at a glance">
+      <span class="contact-item">
+        <span class="contact-label">github</span>
+        <a href="https://github.com/{{ site.github_username }}"
+           class="contact-link"
+           target="_blank"
+           rel="noopener noreferrer">{{ site.github_username }}</a>
+      </span>
+      <span aria-hidden="true">&middot;</span>
+      <span class="contact-item">
+        <span class="contact-label">discord</span>
+        <span class="contact-value">{{ site.discord_handle }}</span>
+      </span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     ABOUT
+     ================================================================ -->
+<section class="section about" id="about" aria-labelledby="about-heading">
+  <div class="container">
+
+    <h2 class="section__heading" id="about-heading">
+      <span class="section__prefix" aria-hidden="true">~/</span>about
+    </h2>
+
+    <div class="about__body">
+      <p>
+        I'm Denis Krüger — Information Security student at THWS Würzburg,
+        focused on offensive security and understanding how attack chains are
+        constructed end-to-end.
+      </p>
+      <p>
+        I approach security through structured reconnaissance, deep enumeration,
+        and controlled exploitation in lab environments. Currently working through
+        TryHackMe and HackTheBox alongside my studies, building practical skills
+        in web application testing, privilege escalation, and attack documentation.
+      </p>
+      <p>
+        I value understanding <em>why</em> an exploit works — not just how to reproduce it.
+      </p>
+    </div>
+
+    <div class="badge-row" aria-label="Practice platform badges">
+      <a href="{{ site.tryhackme_url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="TryHackMe profile for 0N1S3C (opens in new tab)">
+        <img src="{{ site.tryhackme_badge }}" alt="TryHackMe badge — 0N1S3C" width="300" loading="lazy">
+      </a>
+      <a href="{{ site.hackthebox_url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="HackTheBox profile (opens in new tab)">
+        <img src="{{ site.hackthebox_badge }}" alt="HackTheBox badge" width="300" loading="lazy">
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOCUS AREAS
+     ================================================================ -->
+<section class="section focus" id="focus" aria-labelledby="focus-heading">
+  <div class="container">
+
+    <h2 class="section__heading" id="focus-heading">
+      <span class="section__prefix" aria-hidden="true">~/</span>focus areas
+    </h2>
+
+    <ul class="focus__grid" role="list">
+
+      <li class="focus__item">
+        <span class="focus__icon" aria-hidden="true">&gt;</span>
+        <div>
+          <h3 class="focus__title">Web Application Exploitation</h3>
+          <p class="focus__desc">SQLi, XSS, SSRF, authentication bypass, API abuse, business logic flaws.</p>
+        </div>
+      </li>
+
+      <li class="focus__item">
+        <span class="focus__icon" aria-hidden="true">&gt;</span>
+        <div>
+          <h3 class="focus__title">Linux &amp; Windows Privilege Escalation</h3>
+          <p class="focus__desc">SUID/SGID, capabilities, service misconfigs, token abuse, credential harvesting.</p>
+        </div>
+      </li>
+
+      <li class="focus__item">
+        <span class="focus__icon" aria-hidden="true">&gt;</span>
+        <div>
+          <h3 class="focus__title">Wireless &amp; Network Attack Surface</h3>
+          <p class="focus__desc">802.11 analysis, packet capture, protocol-level enumeration and traffic inspection.</p>
+        </div>
+      </li>
+
+      <li class="focus__item">
+        <span class="focus__icon" aria-hidden="true">&gt;</span>
+        <div>
+          <h3 class="focus__title">Embedded &amp; IoT Security</h3>
+          <p class="focus__desc">Firmware analysis, exposed debug interfaces, attack surface documentation for embedded devices.</p>
+        </div>
+      </li>
+
+      <li class="focus__item">
+        <span class="focus__icon" aria-hidden="true">&gt;</span>
+        <div>
+          <h3 class="focus__title">Active Directory Fundamentals</h3>
+          <p class="focus__desc">Kerberos, BloodHound enumeration, lateral movement chains, domain trust abuse.</p>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     PROJECTS
+     ================================================================ -->
+<section class="section projects" id="projects" aria-labelledby="projects-heading">
+  <div class="container">
+
+    <h2 class="section__heading" id="projects-heading">
+      <span class="section__prefix" aria-hidden="true">~/</span>projects
+    </h2>
+
+    <div class="project-grid">
+
+      <article class="project-card">
+        <header class="project-card__header">
+          <h3 class="project-card__title">
+            <a href="https://github.com/{{ site.github_username }}/writeups"
+               target="_blank"
+               rel="noopener noreferrer">writeups</a>
+          </h3>
+          <span class="project-card__tag">documentation</span>
+        </header>
+        <p class="project-card__desc">
+          Structured technical reports documenting lab-based security assessments.
+          Each writeup follows a standardized methodology covering reconnaissance,
+          exploitation, privilege escalation, and defensive considerations.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <header class="project-card__header">
+          <h3 class="project-card__title">
+            <a href="https://github.com/{{ site.github_username }}/pwgen-lite"
+               target="_blank"
+               rel="noopener noreferrer">pwgen-lite</a>
+          </h3>
+          <span class="project-card__tag">python</span>
+        </header>
+        <p class="project-card__desc">
+          Minimal CLI password generator built around secure randomness and cryptographic
+          correctness. Implements <code>secrets</code>-based generation, HMAC-SHA256
+          deterministic mode with rejection sampling, entropy estimation, and
+          brute-force time modelling. Full pytest suite included.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <header class="project-card__header">
+          <h3 class="project-card__title">
+            <a href="https://github.com/{{ site.github_username }}/mfind"
+               target="_blank"
+               rel="noopener noreferrer">mfind</a>
+          </h3>
+          <span class="project-card__tag">c</span>
+        </header>
+        <p class="project-card__desc">
+          Simplified reimplementation of the Unix <code>find</code> utility in C.
+          Recursive directory traversal, name/type/size/depth filtering, and optional
+          parallel traversal across start directories using POSIX threads.
+          Verified memory-safe with Valgrind (zero leaks).
+        </p>
+      </article>
+
+      <article class="project-card">
+        <header class="project-card__header">
+          <h3 class="project-card__title">
+            <a href="https://github.com/{{ site.github_username }}/iot-spiderbot-security"
+               target="_blank"
+               rel="noopener noreferrer">iot-spiderbot-security</a>
+          </h3>
+          <span class="project-card__tag">iot / security</span>
+        </header>
+        <p class="project-card__desc">
+          Security analysis of an IoT robot platform. Covers firmware analysis,
+          exposed debug interfaces, and attack surface documentation for an embedded
+          device. <em>In progress.</em>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     METHODOLOGY / WORKFLOW
+     ================================================================ -->
+<section class="section methodology" id="methodology" aria-labelledby="methodology-heading">
+  <div class="container">
+
+    <h2 class="section__heading" id="methodology-heading">
+      <span class="section__prefix" aria-hidden="true">~/</span>workflow
+    </h2>
+
+    <ol class="workflow-chain" aria-label="Assessment workflow steps" role="list">
+
+      <li class="workflow-step">
+        <span class="workflow-step__number" aria-hidden="true">01</span>
+        <span class="workflow-step__label">Reconnaissance</span>
+      </li>
+
+      <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+
+      <li class="workflow-step">
+        <span class="workflow-step__number" aria-hidden="true">02</span>
+        <span class="workflow-step__label">Enumeration</span>
+      </li>
+
+      <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+
+      <li class="workflow-step">
+        <span class="workflow-step__number" aria-hidden="true">03</span>
+        <span class="workflow-step__label">Vulnerability ID</span>
+      </li>
+
+      <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+
+      <li class="workflow-step">
+        <span class="workflow-step__number" aria-hidden="true">04</span>
+        <span class="workflow-step__label">Exploitation</span>
+      </li>
+
+      <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+
+      <li class="workflow-step">
+        <span class="workflow-step__number" aria-hidden="true">05</span>
+        <span class="workflow-step__label">Privesc</span>
+      </li>
+
+      <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+
+      <li class="workflow-step">
+        <span class="workflow-step__number" aria-hidden="true">06</span>
+        <span class="workflow-step__label">Documentation</span>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     CONTACT
+     ================================================================ -->
+<section class="section contact" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+
+    <h2 class="section__heading" id="contact-heading">
+      <span class="section__prefix" aria-hidden="true">~/</span>contact
+    </h2>
+
+    <ul class="contact__list" role="list">
+
+      <li class="contact__entry">
+        <span class="contact__platform">GitHub</span>
+        <a href="https://github.com/{{ site.github_username }}"
+           class="contact__link"
+           target="_blank"
+           rel="noopener noreferrer">{{ site.github_username }}</a>
+      </li>
+
+      <li class="contact__entry">
+        <span class="contact__platform">Discord</span>
+        <span class="contact__value">{{ site.discord_handle }}</span>
+      </li>
+
+      <li class="contact__entry">
+        <span class="contact__platform">TryHackMe</span>
+        <a href="{{ site.tryhackme_url }}"
+           class="contact__link"
+           target="_blank"
+           rel="noopener noreferrer">0N1S3C</a>
+      </li>
+
+      <li class="contact__entry">
+        <span class="contact__platform">HackTheBox</span>
+        <a href="{{ site.hackthebox_url }}"
+           class="contact__link"
+           target="_blank"
+           rel="noopener noreferrer">profile &rarr;</a>
+      </li>
+
+    </ul>
+  </div>
+</section>
