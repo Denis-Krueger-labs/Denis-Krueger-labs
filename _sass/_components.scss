@@ -88,11 +88,15 @@
   background: $bg-surface;
   border: 1px solid $border-subtle;
   border-radius: $radius-md;
-  transition: border-color $transition-fast, background $transition-fast;
+  transition:
+    border-color $transition-fast,
+    background $transition-fast,
+    box-shadow $transition-fast;
 
   &:hover {
     border-color: $border-accent;
     background: $bg-surface-alt;
+    box-shadow: 0 4px 20px rgba($accent-primary, 0.08);
   }
 }
 
@@ -125,11 +129,17 @@
   border: 1px solid $border-subtle;
   border-radius: $radius-md;
   padding: $space-lg;
-  transition: border-color $transition-normal, background $transition-normal;
+  transition:
+    border-color $transition-normal,
+    background $transition-normal,
+    transform $transition-normal,
+    box-shadow $transition-normal;
 
   &:hover {
-    border-color: $border-accent;
+    border-color: $accent-primary;
     background: $bg-surface-alt;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba($accent-primary, 0.14), 0 0 0 1px $accent-dim;
   }
 }
 
@@ -255,6 +265,129 @@
 
 .contact__value {
   color: $text-secondary;
+}
+
+// ─── Activity timeline ───────────────────────────────────────
+
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 1.75rem;
+  max-width: 680px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0;
+    width: 1px;
+    background: $border-subtle;
+  }
+}
+
+.timeline__item {
+  position: relative;
+  padding: 0 0 $space-lg 1.25rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.55rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $bg-base;
+    border: 1px solid $accent-dim;
+    transition: border-color $transition-fast, background $transition-fast;
+  }
+
+  &:hover::before {
+    border-color: $accent-primary;
+    background: $accent-dim;
+  }
+
+  &--project::before {
+    background: $accent-dim;
+    border-color: $accent-primary;
+  }
+
+  &--writeup::before {
+    background: rgba($accent-secondary, 0.3);
+    border-color: $accent-secondary;
+  }
+
+  &--site::before {
+    background: rgba($text-muted, 0.3);
+    border-color: $text-muted;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timeline__date {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  color: $text-muted;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.timeline__title {
+  font-family: $font-mono;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $text-primary;
+  display: block;
+  margin-bottom: 0.2rem;
+
+  a {
+    color: $text-accent;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $accent-secondary;
+    }
+  }
+}
+
+.timeline__desc {
+  font-size: 0.82rem;
+  color: $text-secondary;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.timeline__tag {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  color: $text-muted;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-sm;
+  padding: 0.1em 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: $space-xs;
+  vertical-align: middle;
+}
+
+// ─── Visitor counter ─────────────────────────────────────────
+
+.visitor-counter {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $text-muted;
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.visitor-count__value {
+  color: $accent-secondary;
 }
 
 // ─── Footer elements ────────────────────────────────────────

@@ -1,0 +1,74 @@
+---
+layout: page
+title: writeups
+subtitle: "Structured technical reports from lab-based offensive security assessments."
+---
+
+<div class="about__body">
+  <p>
+    Each writeup documents a complete assessment against a lab target — covering the full
+    kill chain from initial reconnaissance through exploitation and privilege escalation,
+    with a section on defensive considerations where relevant.
+  </p>
+  <p>
+    The goal is to record <em>why</em> each technique works, not just that it does.
+    Methodology is consistent across all reports so they can be read as a body of work,
+    not just isolated notes.
+  </p>
+</div>
+
+<h2 class="section__heading" style="margin-top: 3rem;">
+  <span class="section__prefix" aria-hidden="true">~/</span>methodology
+</h2>
+
+<ol class="workflow-chain" aria-label="Assessment workflow">
+  <li class="workflow-step">
+    <span class="workflow-step__number">01</span>
+    <span class="workflow-step__label">Reconnaissance</span>
+  </li>
+  <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+  <li class="workflow-step">
+    <span class="workflow-step__number">02</span>
+    <span class="workflow-step__label">Enumeration</span>
+  </li>
+  <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+  <li class="workflow-step">
+    <span class="workflow-step__number">03</span>
+    <span class="workflow-step__label">Vulnerability ID</span>
+  </li>
+  <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+  <li class="workflow-step">
+    <span class="workflow-step__number">04</span>
+    <span class="workflow-step__label">Exploitation</span>
+  </li>
+  <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+  <li class="workflow-step">
+    <span class="workflow-step__number">05</span>
+    <span class="workflow-step__label">Privesc</span>
+  </li>
+  <li class="workflow-step__arrow" aria-hidden="true">&rarr;</li>
+  <li class="workflow-step">
+    <span class="workflow-step__number">06</span>
+    <span class="workflow-step__label">Documentation</span>
+  </li>
+</ol>
+
+<h2 class="section__heading" style="margin-top: 3rem;">
+  <span class="section__prefix" aria-hidden="true">~/</span>view writeups
+</h2>
+
+<div class="about__body">
+  <p>
+    All reports are maintained in the
+    <a href="https://github.com/{{ site.github_username }}/writeups"
+       target="_blank"
+       rel="noopener noreferrer">writeups repository</a>
+    on GitHub. New reports are added as lab machines are completed.
+  </p>
+  <p>
+    <a href="https://github.com/{{ site.github_username }}/writeups"
+       class="btn btn--primary"
+       target="_blank"
+       rel="noopener noreferrer">View on GitHub &rarr;</a>
+  </p>
+</div>

@@ -1,0 +1,71 @@
+---
+layout: page
+title: pwgen-lite
+subtitle: "Minimal CLI password generator built around cryptographic correctness."
+---
+
+<div class="about__body">
+  <p>
+    <code>pwgen-lite</code> is a command-line password generator written in Python.
+    The focus is on doing one thing correctly: generating passwords you can actually
+    trust, with honest entropy estimates and no magic.
+  </p>
+  <p>
+    Random mode uses Python's <code>secrets</code> module (CSPRNG). Deterministic
+    mode derives passwords from a master key and label using HMAC-SHA256 with
+    rejection sampling so the output distribution is exactly uniform over the
+    requested character set.
+  </p>
+</div>
+
+<h2 class="section__heading" style="margin-top: 3rem;">
+  <span class="section__prefix" aria-hidden="true">~/</span>features
+</h2>
+
+<ul class="focus__grid" role="list" style="margin-top:0;">
+  <li class="focus__item">
+    <span class="focus__icon" aria-hidden="true">&gt;</span>
+    <div>
+      <h3 class="focus__title">Secure randomness</h3>
+      <p class="focus__desc"><code>secrets</code>-based generation — no <code>random</code> module.</p>
+    </div>
+  </li>
+  <li class="focus__item">
+    <span class="focus__icon" aria-hidden="true">&gt;</span>
+    <div>
+      <h3 class="focus__title">Deterministic mode</h3>
+      <p class="focus__desc">HMAC-SHA256 + rejection sampling. Same key+label always yields the same password.</p>
+    </div>
+  </li>
+  <li class="focus__item">
+    <span class="focus__icon" aria-hidden="true">&gt;</span>
+    <div>
+      <h3 class="focus__title">Entropy estimation</h3>
+      <p class="focus__desc">Reports bits of entropy and estimated brute-force time at various attack rates.</p>
+    </div>
+  </li>
+  <li class="focus__item">
+    <span class="focus__icon" aria-hidden="true">&gt;</span>
+    <div>
+      <h3 class="focus__title">Full test suite</h3>
+      <p class="focus__desc">pytest suite covering generation, determinism, entropy calculations, and edge cases.</p>
+    </div>
+  </li>
+</ul>
+
+<h2 class="section__heading" style="margin-top: 3rem;">
+  <span class="section__prefix" aria-hidden="true">~/</span>usage
+</h2>
+
+<pre class="terminal-box">python pwgen.py --length 24 --charset alnum
+python pwgen.py --length 32 --deterministic --key "masterkey" --label "github"</pre>
+
+<p style="margin-top: 2rem;">
+  <a href="https://github.com/{{ site.github_username }}/pwgen-lite"
+     class="btn btn--primary"
+     target="_blank"
+     rel="noopener noreferrer">View on GitHub &rarr;</a>
+  <a href="{{ '/projects' | prepend: site.baseurl }}"
+     class="btn btn--ghost"
+     style="margin-left:1rem;">&larr; All projects</a>
+</p>

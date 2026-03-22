@@ -21,7 +21,7 @@ title: Home
     </div>
 
     <div class="hero__identity">
-      <h1 class="hero__handle">{{ site.handle }}</h1>
+      <h1 class="hero__handle" data-text="{{ site.handle }}">{{ site.handle }}</h1>
       <p class="hero__subtitle">Offensive security student &middot; Understanding attack chains end-to-end</p>
     </div>
 
@@ -66,7 +66,7 @@ title: Home
 <!-- ================================================================
      ABOUT
      ================================================================ -->
-<section class="section about" id="about" aria-labelledby="about-heading">
+<section class="section section--alt about" id="about" aria-labelledby="about-heading">
   <div class="container">
 
     <h2 class="section__heading" id="about-heading">
@@ -169,7 +169,7 @@ title: Home
 <!-- ================================================================
      PROJECTS
      ================================================================ -->
-<section class="section projects" id="projects" aria-labelledby="projects-heading">
+<section class="section section--alt projects" id="projects" aria-labelledby="projects-heading">
   <div class="container">
 
     <h2 class="section__heading" id="projects-heading">
@@ -250,9 +250,40 @@ title: Home
 
 
 <!-- ================================================================
+     ACTIVITY TIMELINE
+     ================================================================ -->
+<section class="section timeline-section" id="timeline" aria-labelledby="timeline-heading">
+  <div class="container">
+
+    <h2 class="section__heading" id="timeline-heading">
+      <span class="section__prefix" aria-hidden="true">~/</span>recent activity
+    </h2>
+
+    <ol class="timeline" aria-label="Recent project and writeup activity">
+      {% for entry in site.data.timeline %}
+      <li class="timeline__item timeline__item--{{ entry.type }}">
+        <span class="timeline__date">{{ entry.date }}</span>
+        <span class="timeline__title">
+          {% if entry.url %}
+            <a href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">{{ entry.title }}</a>
+          {% else %}
+            {{ entry.title }}
+          {% endif %}
+          <span class="timeline__tag">{{ entry.type }}</span>
+        </span>
+        <p class="timeline__desc">{{ entry.description }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
      METHODOLOGY / WORKFLOW
      ================================================================ -->
-<section class="section methodology" id="methodology" aria-labelledby="methodology-heading">
+<section class="section section--alt methodology" id="methodology" aria-labelledby="methodology-heading">
   <div class="container">
 
     <h2 class="section__heading" id="methodology-heading">

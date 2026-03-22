@@ -27,9 +27,30 @@
       {{ site.author }}
     </p>
 
+    <p class="footer-meta">
+      <span class="visitor-counter" aria-live="polite" aria-label="Visitor count">
+        <span class="visitor-count__label">visitors:</span>
+        <span id="visit-count" class="visitor-count__value">—</span>
+      </span>
+    </p>
+
     <p class="footer-ai-disclaimer">
       This site was designed and refined with AI assistance.
     </p>
 
   </div>
 </footer>
+
+<script>
+(function () {
+  fetch('https://api.counterapi.dev/v1/0N1S3C/portfolio/up')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var el = document.getElementById('visit-count');
+      if (el && d && d.count != null) {
+        el.textContent = Number(d.count).toLocaleString();
+      }
+    })
+    .catch(function () {});
+})();
+</script>

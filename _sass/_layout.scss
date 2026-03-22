@@ -84,6 +84,20 @@
   justify-content: center;
   overflow: hidden;
   padding-top: 80px;
+  background: radial-gradient(ellipse at 50% 0%, rgba($accent-primary, 0.07) 0%, transparent 65%);
+
+  // Subtle circuit grid overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($accent-primary, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($accent-primary, 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    z-index: $z-base;
+  }
 }
 
 .hero__moon {
@@ -160,6 +174,11 @@
 .section {
   padding: $space-2xl 0;
   border-top: 1px solid $border-subtle;
+
+  &--alt {
+    background: $bg-surface;
+    background-image: radial-gradient(ellipse at 50% 0%, rgba($accent-primary, 0.04) 0%, transparent 60%);
+  }
 }
 
 // ─── About ──────────────────────────────────────────────────

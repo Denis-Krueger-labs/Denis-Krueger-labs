@@ -1,0 +1,51 @@
+---
+layout: page
+title: mfind
+subtitle: "Unix find(1) reimplementation in C — recursive, filtered, optionally parallel."
+---
+
+<div class="about__body">
+  <p>
+    <code>mfind</code> is a simplified reimplementation of the Unix <code>find</code>
+    utility written in C. It supports recursive directory traversal with filtering
+    by name, type, size, and depth. When multiple start directories are provided,
+    traversal can be parallelised using POSIX threads.
+  </p>
+  <p>
+    Memory safety was a primary concern throughout: the entire codebase has been
+    verified with Valgrind (zero leaks, zero errors) under all supported flag combinations.
+  </p>
+</div>
+
+<h2 class="section__heading" style="margin-top: 3rem;">
+  <span class="section__prefix" aria-hidden="true">~/</span>usage
+</h2>
+
+<pre class="terminal-box">mfind [options] [path ...]
+
+Options:
+  -name &lt;pattern&gt;   filter by filename glob pattern
+  -type f|d         filter by type: f=file, d=directory
+  -size [+|-]N      filter by size in bytes (+ larger, - smaller)
+  -maxdepth N       limit traversal depth
+  -mindepth N       skip entries shallower than N
+  -parallel         use one thread per start directory</pre>
+
+<h2 class="section__heading" style="margin-top: 3rem;">
+  <span class="section__prefix" aria-hidden="true">~/</span>build
+</h2>
+
+<pre class="terminal-box">git clone https://github.com/{{ site.github_username }}/mfind
+cd mfind
+make
+./mfind -name "*.c" -type f /usr/src</pre>
+
+<p style="margin-top: 2rem;">
+  <a href="https://github.com/{{ site.github_username }}/mfind"
+     class="btn btn--primary"
+     target="_blank"
+     rel="noopener noreferrer">View on GitHub &rarr;</a>
+  <a href="{{ '/projects' | prepend: site.baseurl }}"
+     class="btn btn--ghost"
+     style="margin-left:1rem;">&larr; All projects</a>
+</p>

@@ -1,0 +1,91 @@
+---
+layout: page
+title: projects
+subtitle: "Tools, research, and documentation — all open source."
+---
+
+<div class="project-grid">
+
+  <article class="project-card">
+    <header class="project-card__header">
+      <h2 class="project-card__title">
+        <a href="{{ '/projects/writeups' | prepend: site.baseurl }}">writeups</a>
+      </h2>
+      <span class="project-card__tag">documentation</span>
+    </header>
+    <p class="project-card__desc">
+      Structured technical reports covering lab-based offensive security assessments.
+      Each writeup follows a standardized methodology: reconnaissance, exploitation,
+      privilege escalation, and defensive analysis.
+    </p>
+    <p class="project-card__desc" style="margin-top:0.75rem">
+      <a href="https://github.com/{{ site.github_username }}/writeups"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="contact__link">GitHub repo &rarr;</a>
+    </p>
+  </article>
+
+  <article class="project-card">
+    <header class="project-card__header">
+      <h2 class="project-card__title">
+        <a href="{{ '/projects/pwgen-lite' | prepend: site.baseurl }}">pwgen-lite</a>
+      </h2>
+      <span class="project-card__tag">python</span>
+    </header>
+    <p class="project-card__desc">
+      Minimal CLI password generator built around cryptographic correctness.
+      HMAC-SHA256 deterministic mode, rejection sampling, entropy estimation,
+      brute-force time modelling, and a full pytest suite.
+    </p>
+    <p class="project-card__desc" style="margin-top:0.75rem">
+      <a href="https://github.com/{{ site.github_username }}/pwgen-lite"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="contact__link">GitHub repo &rarr;</a>
+    </p>
+  </article>
+
+  <article class="project-card">
+    <header class="project-card__header">
+      <h2 class="project-card__title">
+        <a href="{{ '/projects/mfind' | prepend: site.baseurl }}">mfind</a>
+      </h2>
+      <span class="project-card__tag">c</span>
+    </header>
+    <p class="project-card__desc">
+      Reimplementation of the Unix <code>find(1)</code> utility in C.
+      Recursive traversal, name / type / size / depth filtering, optional
+      parallel traversal via POSIX threads. Verified with Valgrind — zero leaks.
+    </p>
+    <p class="project-card__desc" style="margin-top:0.75rem">
+      <a href="https://github.com/{{ site.github_username }}/mfind"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="contact__link">GitHub repo &rarr;</a>
+    </p>
+  </article>
+
+  <article class="project-card">
+    <header class="project-card__header">
+      <h2 class="project-card__title">
+        <a href="https://github.com/{{ site.github_username }}/iot-spiderbot-security"
+           target="_blank"
+           rel="noopener noreferrer">iot-spiderbot-security</a>
+      </h2>
+      <span class="project-card__tag">iot / security</span>
+    </header>
+    <p class="project-card__desc">
+      Security analysis of an IoT robot platform. Firmware extraction,
+      exposed debug interfaces (UART/JTAG), attack surface mapping.
+      <em>In progress.</em>
+    </p>
+    <p class="project-card__desc" style="margin-top:0.75rem">
+      <a href="https://github.com/{{ site.github_username }}/iot-spiderbot-security"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="contact__link">GitHub repo &rarr;</a>
+    </p>
+  </article>
+
+</div>

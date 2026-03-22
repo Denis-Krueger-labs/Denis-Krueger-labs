@@ -1,0 +1,28 @@
+- date: "2025-03"
+  title: "Portfolio site launched"
+  type: site
+  description: "Jekyll portfolio deployed to GitHub Pages at denis-krueger-labs.github.io."
+
+- date: "2025-02"
+  title: "iot-spiderbot-security"
+  type: project
+  description: "Started security analysis of an IoT robot platform — firmware extraction, exposed debug interfaces, attack surface mapping."
+  url: "https://github.com/Denis-Krueger-labs/iot-spiderbot-security"
+
+- date: "2025-01"
+  title: "mfind"
+  type: project
+  description: "Released Unix find(1) reimplementation in C with recursive traversal, filtering, and optional POSIX threads parallelism. Zero Valgrind leaks."
+  url: "https://github.com/Denis-Krueger-labs/mfind"
+
+- date: "2025-01"
+  title: "pwgen-lite"
+  type: project
+  description: "Released minimal CLI password generator — HMAC-SHA256 deterministic mode, rejection sampling, entropy estimation, full pytest suite."
+  url: "https://github.com/Denis-Krueger-labs/pwgen-lite"
+
+- date: "2024-12"
+  title: "Writeups repository started"
+  type: writeup
+  description: "Began structured lab writeup series covering web exploitation, privilege escalation, and AD fundamentals."
+  url: "https://github.com/Denis-Krueger-labs/writeups"
