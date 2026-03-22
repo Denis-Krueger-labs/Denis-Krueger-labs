@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Moth body -->
+  <ellipse cx="100" cy="108" rx="6" ry="28" fill="#e8e8f0"/>
+  <!-- Head -->
+  <circle cx="100" cy="76" r="7" fill="#e8e8f0"/>
+  <!-- Antennae -->
+  <line x1="100" y1="70" x2="72" y2="48" stroke="#e8e8f0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="100" y1="70" x2="128" y2="48" stroke="#e8e8f0" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="71" cy="47" r="2.5" fill="#a78bfa"/>
+  <circle cx="129" cy="47" r="2.5" fill="#a78bfa"/>
+
+  <!-- Upper wings (left) -->
+  <path d="M 97 88
+           C 80 80, 42 68, 22 82
+           C 12 90, 18 108, 36 114
+           C 56 120, 82 110, 97 104
+           Z"
+        fill="#e8e8f0" fill-opacity="0.92"/>
+  <!-- Upper wings (right) -->
+  <path d="M 103 88
+           C 120 80, 158 68, 178 82
+           C 188 90, 182 108, 164 114
+           C 144 120, 118 110, 103 104
+           Z"
+        fill="#e8e8f0" fill-opacity="0.92"/>
+
+  <!-- Lower wings (left) -->
+  <path d="M 97 106
+           C 78 108, 48 118, 36 138
+           C 28 152, 40 164, 58 158
+           C 76 152, 92 132, 97 118
+           Z"
+        fill="#e8e8f0" fill-opacity="0.75"/>
+  <!-- Lower wings (right) -->
+  <path d="M 103 106
+           C 122 108, 152 118, 164 138
+           C 172 152, 160 164, 142 158
+           C 124 152, 108 132, 103 118
+           Z"
+        fill="#e8e8f0" fill-opacity="0.75"/>
+
+  <!-- Wing markings — upper left -->
+  <ellipse cx="62" cy="96" rx="10" ry="6" transform="rotate(-20 62 96)"
+           fill="#7c3aed" fill-opacity="0.55"/>
+  <ellipse cx="48" cy="102" rx="5" ry="3" transform="rotate(-15 48 102)"
+           fill="#a78bfa" fill-opacity="0.4"/>
+  <!-- Wing markings — upper right -->
+  <ellipse cx="138" cy="96" rx="10" ry="6" transform="rotate(20 138 96)"
+           fill="#7c3aed" fill-opacity="0.55"/>
+  <ellipse cx="152" cy="102" rx="5" ry="3" transform="rotate(15 152 102)"
+           fill="#a78bfa" fill-opacity="0.4"/>
+
+  <!-- Wing markings — lower left -->
+  <ellipse cx="68" cy="132" rx="7" ry="4" transform="rotate(-35 68 132)"
+           fill="#7c3aed" fill-opacity="0.4"/>
+  <!-- Wing markings — lower right -->
+  <ellipse cx="132" cy="132" rx="7" ry="4" transform="rotate(35 132 132)"
+           fill="#7c3aed" fill-opacity="0.4"/>
+
+  <!-- Body segments -->
+  <line x1="100" y1="88" x2="100" y2="134" stroke="#09090f" stroke-width="1" stroke-opacity="0.3"/>
+</svg>
