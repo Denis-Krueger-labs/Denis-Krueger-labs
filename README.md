@@ -33,7 +33,7 @@ Supports recursive directory traversal, name/type/size/depth filtering, and opti
 parallel traversal across start directories using POSIX threads.
 Verified memory-safe with Valgrind (zero leaks).
 
-### [LLM Prompt Injection Defences](https://github.com/Denis-Krueger-labs/llm-prompt-injection) Research
+### [LLM Prompt Injection Defences](https://github.com/Denis-Krueger-labs/llm-prompt-injection-paper) Research
 
 Seminar paper (THWS, SS2026) analyzing prompt injection vulnerabilities in LLM-integrated
 systems and evaluating current defence mechanisms  including StruQ, SecAlign, spotlighting,
