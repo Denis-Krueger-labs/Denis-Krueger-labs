@@ -31,7 +31,8 @@ A public learning journal documenting the path toward the Certified Web Exploita
 
 A seminar paper examining prompt-injection vulnerabilities in LLM-integrated systems and evaluating current defence approaches, including structured queries, alignment-based methods, spotlighting, and system-level information-flow controls. The paper focuses on the underlying instruction/data boundary problem and the limits of current defences under adaptive attacks.
 
-### Decup
+### [Decup](https://github.com/Denis-Krueger-labs/decup)
+
 
 `C#` · `.NET` · `P2P Systems` · `Applied Cryptography`
 
@@ -71,11 +72,12 @@ A simplified implementation of the Unix `find` utility written in C. It supports
 
 Structured technical reports for Hack The Box and TryHackMe labs. Each report follows a repeatable methodology covering reconnaissance, enumeration, exploitation, privilege escalation, evidence, and defensive considerations.
 
-### FixDesk
+### [FixDesk](https://github.com/Denis-Krueger-labs/fixdesk)
 
 A React and TypeScript repair-shop frontend featuring customer, device, and repair-order workflows, reusable data-table components, search, pagination, forms, confirmation flows, and backend integration.
 
-### Blue.
+
+### [Blue.](https://github.com/Denis-Krueger-labs/blue.)
 
 An editorial-brutalist festival website built in React, combining custom visual design, responsive layout work, motion, theme switching, and a deliberately unconventional presentation style.
 
