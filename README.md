@@ -33,22 +33,21 @@ A seminar paper examining prompt-injection vulnerabilities in LLM-integrated sys
 
 ### [Decup](https://github.com/Denis-Krueger-labs/decup)
 
-
 `C#` · `.NET` · `P2P Systems` · `Applied Cryptography`
 
 A decentralized peer-to-peer backup and restore prototype built as a six-person university project. The system includes peer discovery, signed identities, routed messaging, chunked payload transfer, checksum validation, replication target selection, restore ownership checks, a guided terminal interface, and an extensive automated test suite.
 
-### Wing FTP Security Lab
+### [Wing FTP Security Lab](https://github.com/Denis-Krueger-labs/Wing-FTP-CVE)
 
 `Vulnerability Research` · `Exploit Validation` · `Mitigation Testing`
 
 A controlled lab assessment of Wing FTP Server 7.4.3 covering service discovery, exploit reproduction, impact validation, and mitigation testing through a reverse proxy and web application firewall. Evidence and defensive observations were recorded alongside the offensive workflow.
 
-### ReportForge Sec
+### [KMU IT/OT Network Security Lab](https://github.com/Denis-Krueger-labs/KMU-IT-OT-Network-Security-Lab)
 
-`Python` · `YAML` · `CLI/TUI` · `Security Reporting`
+`Network Security` · `IT/OT Segmentation` · `Lab Architecture`
 
-An open-source reporting tool in active development that turns structured assessment data into consistent security reports. The project is designed around reproducible findings, evidence handling, validation, and a terminal familiar with opinions.
+A practical network-security lab focused on the design, segmentation, and analysis of mixed IT and operational-technology environments. The project documents the network architecture, trust boundaries, security controls, and the reasoning behind defensive design decisions.
 
 ### [Portfolio](https://denis-krueger-labs.github.io/Portfolio/)
 
@@ -75,7 +74,6 @@ Structured technical reports for Hack The Box and TryHackMe labs. Each report fo
 ### [FixDesk](https://github.com/Denis-Krueger-labs/fixdesk)
 
 A React and TypeScript repair-shop frontend featuring customer, device, and repair-order workflows, reusable data-table components, search, pagination, forms, confirmation flows, and backend integration.
-
 
 ### [Blue.](https://github.com/Denis-Krueger-labs/blue.)
 
