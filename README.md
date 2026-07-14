@@ -8,10 +8,9 @@
 
 ## `01 // ABOUT`
 
-Information Security student at THWS Würzburg with a focus on offensive security.
-I care less about collecting shells than understanding the broken assumption that made them possible, how the weakness can be reproduced, and what a real fix should look like.
+Information Security student at THWS Würzburg with a focus on offensive security. I care less about collecting shells than understanding the broken assumption that made them possible, how the weakness can be reproduced, and what a real fix should look like.
 
-Current work revolves around web exploitation, Linux privilege escalation, security tooling, and technical documentation. Active Directory and broader network attack surfaces are next on the list. Labs, projects, and research notes get written down instead of disappearing into terminal history.
+Current work revolves around web exploitation, Linux privilege escalation, security tooling, and technical documentation. Active Directory and broader network attack surfaces are next on the list.
 
 `current signal:` building security tools, documenting labs, and steadily working toward deeper offensive-security practice.
 
@@ -19,108 +18,90 @@ Current work revolves around web exploitation, Linux privilege escalation, secur
 
 ## `02 // SELECTED OPERATIONS`
 
-### [Road to CWES](https://github.com/Denis-Krueger-labs/road-to-cwes) · [Live site](https://denis-krueger-labs.github.io/Road-To-CWES/)
-
-`Offensive Security` · `Web Exploitation` · `Learning Journal`
-
-A public learning journal documenting the path toward the Certified Web Exploitation Specialist. It combines daily study logs, practical labs, reusable templates, and the reasoning behind each technique rather than recording commands without context.
-
-### [LLM Prompt Injection Defences](https://github.com/Denis-Krueger-labs/llm-prompt-injection-paper)
-
-`Security Research` · `LLM Security` · `Academic Writing`
-
-A seminar paper examining prompt-injection vulnerabilities in LLM-integrated systems and evaluating current defence approaches, including structured queries, alignment-based methods, spotlighting, and system-level information-flow controls. The paper focuses on the underlying instruction/data boundary problem and the limits of current defences under adaptive attacks.
-
 ### [Decup](https://github.com/Denis-Krueger-labs/decup)
 
 `C#` · `.NET` · `P2P Systems` · `Applied Cryptography`
 
-A decentralized peer-to-peer backup and restore prototype built as a six-person university project. The system includes peer discovery, signed identities, routed messaging, chunked payload transfer, checksum validation, replication target selection, restore ownership checks, a guided terminal interface, and an extensive automated test suite.
+A decentralized peer-to-peer backup and restore prototype built as a six-person university project. It combines signed identities, peer discovery, routed messaging, chunked transfers, checksum validation, restore ownership checks, a guided terminal interface, and 352 automated tests.
 
 ### [Wing FTP Security Lab](https://github.com/Denis-Krueger-labs/Wing-FTP-CVE)
 
 `Vulnerability Research` · `Exploit Validation` · `Mitigation Testing`
 
-A controlled lab assessment of Wing FTP Server 7.4.3 covering service discovery, exploit reproduction, impact validation, and mitigation testing through a reverse proxy and web application firewall. Evidence and defensive observations were recorded alongside the offensive workflow.
+A controlled assessment of Wing FTP Server 7.4.3 covering discovery, exploit reproduction, impact validation, and defensive testing with a reverse proxy and web application firewall.
 
 ### [KMU IT/OT Network Security Lab](https://github.com/Denis-Krueger-labs/KMU-IT-OT-Network-Security-Lab)
 
 `Network Security` · `IT/OT Segmentation` · `Lab Architecture`
 
-A practical network-security lab focused on the design, segmentation, and analysis of mixed IT and operational-technology environments. The project documents the network architecture, trust boundaries, security controls, and the reasoning behind defensive design decisions.
+A practical lab for a mixed IT and operational-technology environment, documenting architecture, trust boundaries, segmentation strategy, security controls, and defensive design decisions.
 
-### [Portfolio](https://denis-krueger-labs.github.io/Portfolio/)
+### [Road to CWES](https://github.com/Denis-Krueger-labs/Road-To-CWES) · [Live site](https://denis-krueger-labs.github.io/Road-To-CWES/)
+
+`Offensive Security` · `Web Exploitation` · `Learning Journal`
+
+A public learning journal combining practical labs, study logs, reusable templates, and the reasoning behind each technique rather than recording commands without context.
+
+### [LLM Prompt Injection Defences](https://github.com/Denis-Krueger-labs/llm-prompt-injection-paper)
+
+`Security Research` · `LLM Security` · `Academic Writing`
+
+A seminar paper examining prompt-injection vulnerabilities, current defence approaches, and the underlying instruction/data boundary problem in LLM-integrated systems.
+
+### [Portfolio](https://denis-krueger-labs.github.io/Portfolio/) · [Repository](https://github.com/Denis-Krueger-labs/Portfolio)
 
 `React` · `TypeScript` · `Vite` · `Design Systems`
 
-A custom-built portfolio that presents security work, software projects, research, and learning progress through a deliberately non-corporate terminal-inspired interface.
+A custom-built portfolio presenting security work, software projects, research, and learning progress through a deliberately non-corporate terminal-inspired interface.
 
 ---
 
 ## `03 // ADDITIONAL BUILDS`
 
-### [pwgen-lite](https://github.com/Denis-Krueger-labs/pwgen-lite)
-
-A compact Python password generator built around secure randomness and cryptographic correctness. It includes a deterministic HMAC-SHA256 mode, rejection sampling to avoid modulo bias, entropy estimates, brute-force modelling, tests, and proper CLI exit behaviour.
-
-### [mfind](https://github.com/Denis-Krueger-labs/mfind)
-
-A simplified implementation of the Unix `find` utility written in C. It supports recursive traversal, filters for name, type, size, and depth, optional parallel traversal using POSIX threads, and was verified memory-safe with Valgrind.
-
-### [writeups](https://github.com/Denis-Krueger-labs/writeups)
-
-Structured technical reports for Hack The Box and TryHackMe labs. Each report follows a repeatable methodology covering reconnaissance, enumeration, exploitation, privilege escalation, evidence, and defensive considerations.
-
-### [FixDesk](https://github.com/Denis-Krueger-labs/fixdesk)
-
-A React and TypeScript repair-shop frontend featuring customer, device, and repair-order workflows, reusable data-table components, search, pagination, forms, confirmation flows, and backend integration.
-
-### [Blue.](https://github.com/Denis-Krueger-labs/blue.)
-
-An editorial-brutalist festival website built in React, combining custom visual design, responsive layout work, motion, theme switching, and a deliberately unconventional presentation style.
+| Project | Summary |
+|---|---|
+| [pwgen-lite](https://github.com/Denis-Krueger-labs/pwgen-lite) | Python password generator using `secrets`, HMAC-SHA256, rejection sampling, entropy estimates, and tests. |
+| [mfind](https://github.com/Denis-Krueger-labs/mfind) | C implementation of a simplified Unix `find` with recursive traversal, filters, optional POSIX threads, and Valgrind verification. |
+| [writeups](https://github.com/Denis-Krueger-labs/writeups) | Structured Hack The Box and TryHackMe reports covering recon, exploitation, privilege escalation, evidence, and defensive context. |
+| [FixDesk](https://github.com/Denis-Krueger-labs/fixdesk) | React and TypeScript repair-shop frontend with customer, device, and repair-order workflows. |
+| [Blue.](https://github.com/Denis-Krueger-labs/blue.) | Editorial-brutalist React festival site with responsive layouts, motion, theme switching, and custom visual design. |
 
 ---
 
 ## `04 // METHODOLOGY`
 
 ```text
-Reconnaissance
-    ↓
-Enumeration
-    ↓
-Vulnerability identification
-    ↓
-Exploitation and validation
-    ↓
-Privilege escalation
-    ↓
-Root-cause analysis
-    ↓
-Remediation and documentation
+Reconnaissance → Enumeration → Vulnerability identification
+→ Exploitation and validation → Privilege escalation
+→ Root-cause analysis → Remediation and documentation
 ```
 
-The goal is not merely to prove that something breaks. The goal is to explain why it breaks, what assumptions failed, how the finding can be reproduced safely, and how the weakness should be fixed.
+The goal is not merely to prove that something breaks, but to explain why it breaks, what assumption failed, how the finding can be reproduced safely, and how the weakness should be fixed.
 
 ---
 
 ## `05 // FIELD ACTIVITY`
 
+<p align="center">
+  <img
+    src="./assets/activity.svg"
+    alt="GitHub contribution activity for the last 365 days"
+    width="100%"
+  />
+</p>
 <p>
   <a href="https://tryhackme.com/p/0N1S3C">
     <img
       src="https://tryhackme-badges.s3.amazonaws.com/0N1S3C.png"
       alt="TryHackMe profile badge"
-      width="350"
+      width="330"
     />
   </a>
-</p>
-
-<p>
   <a href="https://app.hackthebox.com/public/users/3188353">
     <img
       src="https://www.hackthebox.eu/badge/image/3188353"
       alt="Hack The Box profile badge"
-      width="350"
+      width="330"
     />
   </a>
 </p>
