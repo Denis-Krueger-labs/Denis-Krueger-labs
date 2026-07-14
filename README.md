@@ -84,7 +84,7 @@ The goal is not merely to prove that something breaks, but to explain why it bre
 
 <p align="center">
   <img
-    src="./assets/activity.svg"
+    src="./assets/activity.svg?v=2"
     alt="GitHub contribution activity for the last 365 days"
     width="100%"
   />
