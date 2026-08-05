@@ -29,6 +29,13 @@ root@portfolio:~$ ls ~/projects
 
 <table>
 <tr>
+<td colspan="2" valign="top">
+<h3><a href="https://github.com/Denis-Krueger-labs/home-lab">home-lab/</a></h3>
+<p><code>Proxmox</code> · <code>OPNsense</code> · <code>Active Directory</code> · <code>NixOS</code> · <code>Infrastructure Security</code></p>
+<p>A documented small enterprise-style security lab built on Proxmox VE with an isolated OPNsense network, Windows Server 2025 Active Directory, a domain-joined Windows 11 client, reusable Debian and Windows templates, backup and remote-access paths, and the experimental NixOS and Hyprland Mori OS workstation.</p>
+</td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 <h3><a href="https://github.com/Denis-Krueger-labs/decup">decup/</a></h3>
 <p><code>C#</code> · <code>.NET</code> · <code>P2P Systems</code> · <code>Applied Cryptography</code></p>
@@ -85,7 +92,7 @@ root@portfolio:~$ find ~/projects -maxdepth 1 -type d
 </tr>
 <tr>
 <td width="50%" valign="top"><h3><a href="https://github.com/Denis-Krueger-labs/blue.">blue./</a></h3><p>Editorial-brutalist React festival site with responsive layouts, motion, theme switching, and custom visual design.</p></td>
-<td width="50%" valign="top"><h3>next-transmission/</h3><p>More security tooling, infrastructure experiments, home-lab work, and technical documentation are currently in development.</p></td>
+<td width="50%" valign="top"><h3>next-transmission/</h3><p>More security tooling, infrastructure experiments, and technical documentation are currently in development.</p></td>
 </tr>
 </table>
 
@@ -124,7 +131,7 @@ root@portfolio:~$ pacman -Q
 <code>kali</code> <code>burpsuite</code> <code>nmap</code> <code>gobuster</code> <code>ffuf</code> <code>sqlmap</code> <code>metasploit</code> <code>wireshark</code> <code>owasp-zap</code>
 
 <br><br><strong>Systems &amp; Development</strong><br>
-<code>linux</code> <code>git</code> <code>github-actions</code> <code>dotnet</code> <code>react</code> <code>vite</code> <code>docker</code> <code>proxmox</code>
+<code>linux</code> <code>git</code> <code>github-actions</code> <code>dotnet</code> <code>react</code> <code>vite</code> <code>docker</code> <code>proxmox</code> <code>opnsense</code> <code>nixos</code> <code>active-directory</code> <code>tailscale</code>
 </td>
 </tr>
 </table>
@@ -157,6 +164,7 @@ root@portfolio:~$ ls ~/known-routes
 ```
 
 <p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/home-lab">home-lab/</a> ·
   <a href="https://denis-krueger-labs.github.io/Portfolio/">portfolio/</a> ·
   <a href="https://denis-krueger-labs.github.io/Road-To-CWES/">road-to-cwes/</a> ·
   <a href="https://github.com/Denis-Krueger-labs/writeups">writeups/</a> ·
