@@ -145,7 +145,7 @@ root@portfolio:~$ journalctl --since "365 days ago"
 ```
 
 <p align="center">
-  <img src="./assets/activity.svg" alt="GitHub contribution activity for the last 365 days" width="100%" />
+  <img src="./assets/activity.svg?v=2" alt="GitHub contribution activity for the last 365 days" width="100%" />
 </p>
 
 <table>
