@@ -169,8 +169,9 @@ root@portfolio:~$ ls ~/known-routes
   <a href="https://denis-krueger-labs.github.io/Road-To-CWES/">road-to-cwes/</a> ·
   <a href="https://github.com/Denis-Krueger-labs/writeups">writeups/</a> ·
   <a href="https://tryhackme.com/p/0N1S3C">tryhackme/</a> ·
-  <a href="https://app.hackthebox.com/public/users/3188353">hack-the-box/</a>
+  <a href="https://profile.hackthebox.com/profile/019c7d76-1e97-73d7-90de-5861d7eb8087">hack-the-box/</a>
 </p>
+
 
 ---
 
