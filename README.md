@@ -207,17 +207,19 @@ root@portfolio:~$ journalctl --since "365 days ago"
   <img src="./assets/activity.svg" alt="GitHub contribution activity for the last 365 days" width="100%" />
 </p>
 
-
-[![GitHub Streak](https://streak-stats.demolab.com?user=Denis-Krueger-labs&theme=dark&timezone=%2B2&date_format=j%2Fn%5B%2FY%5D&card_width=1100&ring=A878E3&border=3B2B4F&stroke=3B2B4F&currStreakNum=E8DFCF&fire=A878E3&sideNums=E8DFCF&sideLabels=877C91&dates=9B6FD3&currStreakLabel=9B6FD3&excludeDaysLabel=877C91&background=0B0D10&hide_total_contributions=true)](https://git.io/streak-stats)
-
-<table>
-<tr>
-<td width="50%" align="center" valign="middle"><a href="https://tryhackme.com/p/0N1S3C"><img src="https://tryhackme-badges.s3.amazonaws.com/0N1S3C.png" alt="TryHackMe profile badge" width="100%" /></a></td>
-<td width="50%" align="center" valign="middle"><a href="https://app.hackthebox.com/public/users/3188353"><img src="https://www.hackthebox.eu/badge/image/3188353" alt="Hack The Box profile badge" width="100%" /></a></td>
-</tr>
-</table>
-
-
+<p align="center">
+  <img
+    align="top"
+    width="49.5%"
+    src="https://streak-stats.demolab.com?user=Denis-Krueger-labs&theme=dark&timezone=%2B2&date_format=j%2Fn%5B%2FY%5D&card_width=550&ring=A878E3&border=3B2B4F&stroke=3B2B4F&currStreakNum=E8DFCF&fire=A878E3&sideNums=E8DFCF&sideLabels=877C91&dates=9B6FD3&currStreakLabel=9B6FD3&excludeDaysLabel=877C91&background=0B0D10&hide_total_contributions=true"
+    alt="GitHub Streak"
+  />&nbsp;<img
+    align="top"
+    width="49.5%"
+    src="https://github-stats-extended.vercel.app/api/top-langs?username=Denis-Krueger-labs&langs_count=4&card_width=690&title_color=9B6FD3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&prog_bar_bg_color=161A20&border_radius=14"
+    alt="Most Used Languages"
+  />
+</p>
 
 ---
 
