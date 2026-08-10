@@ -33,7 +33,7 @@ root@portfolio:~$ ls ~/projects
     width="49%"
     src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=home-lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="home-lab"
-  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/Portfolio"><img
+  /></a>&nbsp;<a href="https://denis-krueger-labs.github.io/Portfolio/"><img
     align="top"
     width="49%"
     src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Portfolio&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
