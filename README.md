@@ -26,68 +26,62 @@ current signal  building security tools
 ```text
 root@portfolio:~$ ls ~/projects
 ```
-<table>
 
-<tr>
-<td colspan="2" valign="top">
-<h3><a href="https://denis-krueger-labs.github.io/Portfolio/">portfolio/</a> · <a href="https://github.com/Denis-Krueger-labs/Portfolio">source</a></h3>
-<p><code>React</code> · <code>TypeScript</code> · <code>Vite</code> · <code>Design Systems</code></p>
-<p>A custom-built portfolio presenting security work, software projects, research, and learning progress through a deliberately non-corporate terminal-inspired interface.</p>
-</td>
-</tr>
+<p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/home-lab"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=home-lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="home-lab"
+  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/Portfolio"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Portfolio&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="Portfolio"
+  /></a>
+</p>
 
-<tr>
-<td colspan="2" valign="top">
-<h3><a href="https://github.com/Denis-Krueger-labs/home-lab">home-lab/</a></h3>
-<p><code>Proxmox</code> · <code>OPNsense</code> · <code>Active Directory</code> · <code>NixOS</code> · <code>Infrastructure Security</code></p>
-<p>A documented small enterprise-style security lab built on Proxmox VE with an isolated OPNsense network, Windows Server 2025 Active Directory, a domain-joined Windows 11 client, reusable Debian and Windows templates, backup and remote-access paths, and the experimental NixOS and Hyprland Mori OS workstation.</p>
-</td>
-</tr>
+<p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/Wing-FTP-CVE"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Wing-FTP-CVE&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="Wing FTP CVE Lab"
+  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/copy-fail-lab"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=copy-fail-lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="CopyFail Security Lab"
+  /></a>
+</p>
 
-<tr>
-<td width="50%" valign="top">
-<h3><a href="https://github.com/Denis-Krueger-labs/Wing-FTP-CVE">wing-ftp-security-lab/</a></h3>
-<p><code>Vulnerability Research</code> · <code>Exploit Validation</code> · <code>Mitigation Testing</code></p>
-<p>A controlled assessment of Wing FTP Server 7.4.3 covering discovery, exploit reproduction, impact validation, and defensive testing with a reverse proxy and web application firewall.</p>
-</td>
+<p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/decup"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=decup&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="decup"
+  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/KMU-IT-OT-Network-Security-Lab"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=KMU-IT-OT-Network-Security-Lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="KMU IT OT Network Security Lab"
+  /></a>
+</p>
 
-<td width="50%" valign="top">
-<h3><a href="https://github.com/Denis-Krueger-labs/copy-fail-lab">copyfail-security-lab/</h3>
-<p><code>Linux Kernel</code> · <code>Privilege Escalation</code> · <code>Detection Engineering</code></p>
-<p>A controlled reproduction of CopyFail examining a Linux kernel local privilege escalation from exploit validation and root-cause analysis through behavioural detection, mitigation, and patch validation.</p>
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-<h3><a href="https://github.com/Denis-Krueger-labs/decup">decup/</a></h3>
-<p><code>C#</code> · <code>.NET</code> · <code>P2P Systems</code> · <code>Applied Cryptography</code></p>
-<p>A decentralized peer-to-peer backup and restore prototype built as a six-person university project. It combines signed identities, peer discovery, routed messaging, chunked transfers, checksum validation, restore ownership checks, a guided terminal interface, and 352 automated tests.</p>
-</td>
-
-<td width="50%" valign="top">
-<h3><a href="https://github.com/Denis-Krueger-labs/KMU-IT-OT-Network-Security-Lab">kmu-it-ot-network-security-lab/</a></h3>
-<p><code>Network Security</code> · <code>IT/OT Segmentation</code> · <code>Lab Architecture</code></p>
-<p>A practical lab for a mixed IT and operational-technology environment, documenting architecture, trust boundaries, segmentation strategy, security controls, and defensive design decisions.</p>
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-<h3><a href="https://github.com/Denis-Krueger-labs/Road-To-CWES">road-to-cwes/</a> · <a href="https://denis-krueger-labs.github.io/Road-To-CWES/">live</a></h3>
-<p><code>Offensive Security</code> · <code>Web Exploitation</code> · <code>Learning Journal</code></p>
-<p>A public learning journal combining practical labs, study logs, reusable templates, and the reasoning behind each technique rather than recording commands without context.</p>
-</td>
-
-<td width="50%" valign="top">
-<h3><a href="https://github.com/Denis-Krueger-labs/llm-prompt-injection-paper">llm-prompt-injection-paper/</a></h3>
-<p><code>Security Research</code> · <code>LLM Security</code> · <code>Academic Writing</code></p>
-<p>A seminar paper examining prompt-injection vulnerabilities, current defence approaches, and the underlying instruction/data boundary problem in LLM-integrated systems.</p>
-</td>
-</tr>
-
-
-</table>
+<p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/Road-To-CWES"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Road-To-CWES&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="Road To CWES"
+  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/llm-prompt-injection-paper"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=llm-prompt-injection-paper&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="LLM Prompt Injection Paper"
+  /></a>
+</p>
 
 ---
 
@@ -97,22 +91,50 @@ root@portfolio:~$ ls ~/projects
 root@portfolio:~$ find ~/projects -maxdepth 1 -type d
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top"><h3><a href="https://github.com/Denis-Krueger-labs/pwgen-lite">pwgen-lite/</a></h3><p>Python password generator using <code>secrets</code>, HMAC-SHA256, rejection sampling, entropy estimates, and tests.</p></td>
-<td width="50%" valign="top"><h3><a href="https://github.com/Denis-Krueger-labs/mfind">mfind/</a></h3><p>C implementation of a simplified Unix <code>find</code> with recursive traversal, filters, optional POSIX threads, and Valgrind verification.</p></td>
-</tr>
-<tr>
-<td width="50%" valign="top"><h3><a href="https://github.com/Denis-Krueger-labs/writeups">writeups/</a></h3><p>Structured Hack The Box and TryHackMe reports covering recon, exploitation, privilege escalation, evidence, and defensive context.</p></td>
-<td width="50%" valign="top"><h3><a href="https://github.com/Denis-Krueger-labs/fixdesk">fixdesk/</a></h3><p>React and TypeScript repair-shop frontend with customer, device, and repair-order workflows.</p></td>
-</tr>
-<tr>
-<td width="50%" valign="top"><h3><a href="https://github.com/Denis-Krueger-labs/blue.">blue./</a></h3><p>Editorial-brutalist React festival site with responsive layouts, motion, theme switching, and custom visual design.</p></td>
-<td width="50%" valign="top"><h3>next-transmission/</h3><p>More security tooling, infrastructure experiments, and technical documentation are currently in development.</p></td>
-</tr>
-</table>
+<p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/pwgen-lite"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=pwgen-lite&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="pwgen-lite"
+  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/mfind"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=mfind&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="mfind"
+  /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/writeups"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=writeups&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="writeups"
+  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/fixdesk"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=fixdesk&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="fixdesk"
+  /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Denis-Krueger-labs/blue."><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=blue.&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="blue."
+  /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/letters-from-the-deep"><img
+    align="top"
+    width="49%"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=letters-from-the-deep&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    alt="letters-from-the-deep"
+  /></a>
+</p>
 
 ---
+
 
 <table>
 <tr>
