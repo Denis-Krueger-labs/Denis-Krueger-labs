@@ -31,12 +31,12 @@ root@portfolio:~$ ls ~/projects
   <a href="https://github.com/Denis-Krueger-labs/home-lab"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=home-lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=home-lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="home-lab"
   /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/Portfolio"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Portfolio&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Portfolio&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="Portfolio"
   /></a>
 </p>
@@ -45,12 +45,12 @@ root@portfolio:~$ ls ~/projects
   <a href="https://github.com/Denis-Krueger-labs/Wing-FTP-CVE"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Wing-FTP-CVE&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Wing-FTP-CVE&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="Wing FTP CVE Lab"
   /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/copy-fail-lab"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=copy-fail-lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=copy-fail-lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="CopyFail Security Lab"
   /></a>
 </p>
@@ -59,12 +59,12 @@ root@portfolio:~$ ls ~/projects
   <a href="https://github.com/Denis-Krueger-labs/decup"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=decup&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=decup&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="decup"
   /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/KMU-IT-OT-Network-Security-Lab"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=KMU-IT-OT-Network-Security-Lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=KMU-IT-OT-Network-Security-Lab&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="KMU IT OT Network Security Lab"
   /></a>
 </p>
@@ -73,12 +73,12 @@ root@portfolio:~$ ls ~/projects
   <a href="https://github.com/Denis-Krueger-labs/Road-To-CWES"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Road-To-CWES&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=Road-To-CWES&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="Road To CWES"
   /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/llm-prompt-injection-paper"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=llm-prompt-injection-paper&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=llm-prompt-injection-paper&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="LLM Prompt Injection Paper"
   /></a>
 </p>
@@ -95,12 +95,12 @@ root@portfolio:~$ find ~/projects -maxdepth 1 -type d
   <a href="https://github.com/Denis-Krueger-labs/pwgen-lite"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=pwgen-lite&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=pwgen-lite&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="pwgen-lite"
   /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/mfind"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=mfind&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=mfind&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="mfind"
   /></a>
 </p>
@@ -109,12 +109,12 @@ root@portfolio:~$ find ~/projects -maxdepth 1 -type d
   <a href="https://github.com/Denis-Krueger-labs/writeups"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=writeups&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=writeups&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="writeups"
   /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/fixdesk"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=fixdesk&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=fixdesk&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="fixdesk"
   /></a>
 </p>
@@ -123,12 +123,12 @@ root@portfolio:~$ find ~/projects -maxdepth 1 -type d
   <a href="https://github.com/Denis-Krueger-labs/blue."><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=blue.&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=blue.&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="blue."
   /></a>&nbsp;<a href="https://github.com/Denis-Krueger-labs/letters-from-the-deep"><img
     align="top"
     width="49%"
-    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=letters-from-the-deep&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14"
+    src="https://github-stats-extended.vercel.app/api/pin?username=Denis-Krueger-labs&repo=letters-from-the-deep&description_lines_count=3&card_width=550&title_color=9B6FD3&icon_color=A878E3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&border_radius=14&cache_seconds=21600"
     alt="letters-from-the-deep"
   /></a>
 </p>
