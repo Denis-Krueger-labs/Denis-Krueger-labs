@@ -253,19 +253,19 @@ root@portfolio:~$ ls ~/known-routes
 
 <p align="center">
   <a href="https://www.linkedin.com/in/denis-krüger-882520354/">
-    <img src="https://img.shields.io/badge/LINKEDIN-CONNECT-9d4dff?style=for-the-badge&logo=linkedin&logoColor=f4f0ff&labelColor=18171c" alt="LinkedIn" />
+    <img height="24" src="https://img.shields.io/badge/LINKEDIN-CONNECT-9d4dff?style=for-the-badge&logo=linkedin&logoColor=f4f0ff&labelColor=18171c" alt="LinkedIn" />
   </a>
-
+  <a href="https://discord.com/users/536248721189371904">
+    <img height="24" src="https://img.shields.io/badge/DISCORD-0N1S3C-9d4dff?style=for-the-badge&logo=discord&logoColor=f4f0ff&labelColor=18171c" alt="Discord" />
+  </a>
+  <img height="24" src="https://img.shields.io/badge/MATRIX-COMING%20SOON-9d4dff?style=for-the-badge&logo=matrix&logoColor=f4f0ff&labelColor=18171c" alt="Matrix Coming Soon" />
   <a href="https://tryhackme.com/p/0N1S3C">
-    <img src="https://img.shields.io/badge/TRYHACKME-0N1S3C-9d4dff?style=for-the-badge&logo=tryhackme&logoColor=f4f0ff&labelColor=18171c" alt="TryHackMe" />
+    <img height="24" src="https://img.shields.io/badge/TRYHACKME-0N1S3C-9d4dff?style=for-the-badge&logo=tryhackme&logoColor=f4f0ff&labelColor=18171c" alt="TryHackMe" />
   </a>
-
- <a href="https://profile.hackthebox.com/profile/019c7d76-1e97-73d7-90de-5861d7eb8087">
-    <img src="https://img.shields.io/badge/HACK_THE_BOX-0N1S3C2-9d4dff?style=for-the-badge&logo=hackthebox&logoColor=f4f0ff&labelColor=18171c" alt="Hack The Box" />
+  <a href="https://profile.hackthebox.com/profile/019c7d76-1e97-73d7-90de-5861d7eb8087">
+    <img height="24" src="https://img.shields.io/badge/HACK_THE_BOX-0N1S3C2-9d4dff?style=for-the-badge&logo=hackthebox&logoColor=f4f0ff&labelColor=18171c" alt="Hack The Box" />
   </a>
- 
 </p>
-
 
 ---
 
