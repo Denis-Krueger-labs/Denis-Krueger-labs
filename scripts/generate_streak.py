@@ -347,7 +347,7 @@ def render_svg(
         f'{verdict}'
         f'</text>',
 
-        f'<text x="{width - 28}" y="228" text-anchor="end" '
+        f'<text x="{width - 28}" y="222" text-anchor="end" '
         f'fill="{MUTED}" font-family="{mono}" font-size="9">'
         f'mori familiar classification // berlin'
         f'</text>',
