@@ -230,10 +230,7 @@ def mori_language_verdict(
         languages[0]["percentage"]
     )
 
-    # Dominant-language verdicts take priority.
-    #
-    # Otherwise a tiny amount of TypeScript + C# can trick MORI
-    # into calling a 93% C profile "full-stack", which is nonsense.
+    # Dominant languages take priority.
     if top_percentage >= 60:
         dominant_verdicts = {
             "C": (
@@ -284,7 +281,8 @@ def mori_language_verdict(
                 "It has become ideological."
             ),
             "SQL": (
-                "The database has become the primary conversational partner."
+                "The database has become the primary "
+                "conversational partner."
             ),
             "Assembly": (
                 "You descended beneath abstraction "
@@ -298,7 +296,6 @@ def mori_language_verdict(
             "I assume this was intentional.",
         )
 
-    # Interesting combinations only matter if no single language dominates.
     top_names = set(
         names[:4]
     )
@@ -339,7 +336,6 @@ def mori_language_verdict(
             "Remarkable."
         )
 
-    # Ordinary top-language verdicts.
     verdicts = {
         "C": (
             "You were offered abstractions. "
@@ -413,21 +409,10 @@ def mori_language_verdict(
 # ASCII bar helpers
 # ---------------------------------------------------------------------------
 
-def ascii_bar(
+def ascii_bar_counts(
     percentage: float,
-    width: int = 24,
-) -> tuple[str, str]:
-    """
-    Return the filled and empty sections of a fixed-width bar.
-
-    Example:
-        percentage = 75
-        width = 8
-
-        filled -> ██████
-        empty  -> ░░
-    """
-
+    width: int = 40,
+) -> tuple[int, int]:
     filled_count = round(
         (percentage / 100)
         * width
@@ -445,18 +430,152 @@ def ascii_bar(
         width - filled_count
     )
 
-    filled = (
-        "█" * filled_count
-    )
-
-    empty = (
-        "░" * empty_count
-    )
-
     return (
-        filled,
-        empty,
+        filled_count,
+        empty_count,
     )
+
+
+def render_ascii_bar(
+    *,
+    x: int,
+    y: int,
+    percentage: float,
+    width_chars: int,
+    index: int,
+) -> list[str]:
+    """
+    Draw a terminal-style ASCII progress bar.
+
+    The empty rail is always visible.
+
+    The purple filled section is revealed from left to right using
+    an animated clipping rectangle.
+
+    The clip rectangle has the final width as its normal value, so
+    renderers without SVG animation still display the correct result.
+    """
+
+    char_width = 6.6
+    bracket_width = 8
+
+    filled_count, _ = ascii_bar_counts(
+        percentage,
+        width=width_chars,
+    )
+
+    rail_text = "░" * width_chars
+    fill_text = "█" * filled_count
+
+    content_x = (
+        x + bracket_width
+    )
+
+    bar_pixel_width = (
+        width_chars
+        * char_width
+    )
+
+    final_fill_width = (
+        filled_count
+        * char_width
+    )
+
+    closing_x = (
+        content_x
+        + bar_pixel_width
+    )
+
+    clip_id = (
+        f"language-fill-{index}"
+    )
+
+    delay = (
+        index * 0.14
+    )
+
+    duration = 0.65
+
+    parts = [
+        # Clip definition.
+        "<defs>",
+
+        (
+            f'<clipPath '
+            f'id="{clip_id}">'
+            f'<rect '
+            f'x="{content_x}" '
+            f'y="{y - 13}" '
+            f'width="{final_fill_width:.1f}" '
+            f'height="18">'
+            f'<animate '
+            f'attributeName="width" '
+            f'from="0" '
+            f'to="{final_fill_width:.1f}" '
+            f'begin="{delay}s" '
+            f'dur="{duration}s" '
+            f'fill="freeze" '
+            f'calcMode="spline" '
+            f'keyTimes="0;1" '
+            f'keySplines="0.2 0.8 0.2 1"'
+            f'/>'
+            f'</rect>'
+            f'</clipPath>'
+        ),
+
+        "</defs>",
+
+        # Opening bracket.
+        (
+            f'<text '
+            f'x="{x}" '
+            f'y="{y}" '
+            f'fill="{MUTED}" '
+            f'font-family="{MONO}" '
+            f'font-size="11">'
+            f'['
+            f'</text>'
+        ),
+
+        # Empty ASCII rail.
+        (
+            f'<text '
+            f'x="{content_x}" '
+            f'y="{y}" '
+            f'fill="{MUTED}" '
+            f'font-family="{MONO}" '
+            f'font-size="11">'
+            f'{rail_text}'
+            f'</text>'
+        ),
+
+        # Purple fill, revealed through the animated clip.
+        (
+            f'<text '
+            f'x="{content_x}" '
+            f'y="{y}" '
+            f'fill="{ACCENT_BRIGHT}" '
+            f'font-family="{MONO}" '
+            f'font-size="11" '
+            f'clip-path="url(#{clip_id})">'
+            f'{fill_text}'
+            f'</text>'
+        ),
+
+        # Closing bracket.
+        (
+            f'<text '
+            f'x="{closing_x:.1f}" '
+            f'y="{y}" '
+            f'fill="{MUTED}" '
+            f'font-family="{MONO}" '
+            f'font-size="11">'
+            f']'
+            f'</text>'
+        ),
+    ]
+
+    return parts
 
 
 # ---------------------------------------------------------------------------
@@ -568,10 +687,14 @@ def render_svg(
 
     else:
         label_x = 48
-        bar_x = 180
+
+        # Bar starts a little closer to language name now.
+        bar_x = 170
+
         percent_x = 632
 
-        bar_chars = 24
+        # Much wider than the old 24-character version.
+        bar_chars = 40
 
         for index, language in enumerate(
             languages
@@ -591,14 +714,6 @@ def render_svg(
                 + index * 24
             )
 
-            (
-                filled,
-                empty,
-            ) = ascii_bar(
-                percentage,
-                width=bar_chars,
-            )
-
             # Language name
             parts.append(
                 f'<text '
@@ -612,66 +727,15 @@ def render_svg(
                 f'</text>'
             )
 
-            # Opening bracket
-            parts.append(
-                f'<text '
-                f'x="{bar_x}" '
-                f'y="{row_y}" '
-                f'fill="{MUTED}" '
-                f'font-family="{MONO}" '
-                f'font-size="11">'
-                f'['
-                f'</text>'
-            )
-
-            # Filled section
-            parts.append(
-                f'<text '
-                f'x="{bar_x + 8}" '
-                f'y="{row_y}" '
-                f'fill="{ACCENT_BRIGHT}" '
-                f'font-family="{MONO}" '
-                f'font-size="11">'
-                f'{escape(filled)}'
-                f'</text>'
-            )
-
-            # Empty section starts after the filled chars.
-            #
-            # Monospace text at 11px is roughly 6.6px per character.
-            empty_x = (
-                bar_x
-                + 8
-                + len(filled) * 6.6
-            )
-
-            parts.append(
-                f'<text '
-                f'x="{empty_x:.1f}" '
-                f'y="{row_y}" '
-                f'fill="{MUTED}" '
-                f'font-family="{MONO}" '
-                f'font-size="11">'
-                f'{escape(empty)}'
-                f'</text>'
-            )
-
-            # Closing bracket
-            closing_x = (
-                bar_x
-                + 8
-                + bar_chars * 6.6
-            )
-
-            parts.append(
-                f'<text '
-                f'x="{closing_x:.1f}" '
-                f'y="{row_y}" '
-                f'fill="{MUTED}" '
-                f'font-family="{MONO}" '
-                f'font-size="11">'
-                f']'
-                f'</text>'
+            # Animated ASCII bar
+            parts.extend(
+                render_ascii_bar(
+                    x=bar_x,
+                    y=row_y,
+                    percentage=percentage,
+                    width_chars=bar_chars,
+                    index=index,
+                )
             )
 
             # Percentage
@@ -699,7 +763,7 @@ def render_svg(
             f'stroke-width="1"'
             f'/>',
 
-            # The beast
+            # Mori
             f'<text '
             f'x="28" '
             f'y="207" '
@@ -720,7 +784,7 @@ def render_svg(
             f'{verdict}'
             f'</text>',
 
-            # Tiny footer
+            # Footer
             f'<text '
             f'x="{width - 28}" '
             f'y="222" '
