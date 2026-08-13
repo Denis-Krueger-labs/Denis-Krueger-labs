@@ -11,9 +11,9 @@
 <clipPath id="current-streak-clip"><rect x="48" y="74" width="120" height="56"/></clipPath>
 </defs>
 <text x="48" y="118" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">10<set attributeName="opacity" to="0" begin="0s" fill="freeze"/></text>
-<g clip-path="url(#current-streak-clip)" opacity="0"><set attributeName="opacity" to="1" begin="0s" fill="freeze"/>
+<g clip-path="url(#current-streak-clip)" opacity="0"><set attributeName="opacity" to="1" begin="0.0s" fill="freeze"/>
 <g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -58;0 -116;0 -174;0 -232;0 -290;0 -348;0 -406;0 -464;0 -522;0 -580" dur="1.25s" calcMode="discrete" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 -58;0 -116;0 -174;0 -232;0 -290;0 -348;0 -406;0 -464;0 -522;0 -580" begin="0.0s" dur="1.25s" calcMode="discrete" fill="freeze"/>
 <text x="48" y="118" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">0</text>
 <text x="48" y="176" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">1</text>
 <text x="48" y="234" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">2</text>
@@ -35,9 +35,9 @@
 <clipPath id="longest-streak-clip"><rect x="452" y="81" width="100" height="39"/></clipPath>
 </defs>
 <text x="452" y="108" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">13<set attributeName="opacity" to="0" begin="0s" fill="freeze"/></text>
-<g clip-path="url(#longest-streak-clip)" opacity="0"><set attributeName="opacity" to="1" begin="0s" fill="freeze"/>
+<g clip-path="url(#longest-streak-clip)" opacity="0"><set attributeName="opacity" to="1" begin="1.35s" fill="freeze"/>
 <g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -41;0 -82;0 -123;0 -164;0 -205;0 -246;0 -287;0 -328;0 -369;0 -410;0 -451;0 -492;0 -533" dur="1.45s" calcMode="discrete" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 -41;0 -82;0 -123;0 -164;0 -205;0 -246;0 -287;0 -328;0 -369;0 -410;0 -451;0 -492;0 -533" begin="1.35s" dur="1.45s" calcMode="discrete" fill="freeze"/>
 <text x="452" y="108" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">0</text>
 <text x="452" y="149" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">1</text>
 <text x="452" y="190" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">2</text>
