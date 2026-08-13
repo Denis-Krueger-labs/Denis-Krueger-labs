@@ -28,7 +28,6 @@ MUTED = "#877c91"
 ACCENT = "#9b6fd3"
 ACCENT_BRIGHT = "#a878e3"
 PANEL = "#161a20"
-RAIL = "#222831"
 
 MONO = (
     "ui-monospace, SFMono-Regular, "
@@ -58,7 +57,10 @@ def github_request(
     )
 
     try:
-        with urllib.request.urlopen(request, timeout=30) as response:
+        with urllib.request.urlopen(
+            request,
+            timeout=30,
+        ) as response:
             return json.loads(
                 response.read().decode("utf-8")
             )
@@ -95,9 +97,15 @@ def fetch_owned_repositories(
             f"&sort=updated"
         )
 
-        page_data = github_request(token, url)
+        page_data = github_request(
+            token,
+            url,
+        )
 
-        if not isinstance(page_data, list):
+        if not isinstance(
+            page_data,
+            list,
+        ):
             raise RuntimeError(
                 "GitHub did not return a repository list."
             )
@@ -123,8 +131,14 @@ def aggregate_language_totals(
     totals: dict[str, int] = {}
 
     for repo in repos:
-        repo_name = repo.get("name", "unknown")
-        languages_url = repo.get("languages_url")
+        repo_name = repo.get(
+            "name",
+            "unknown",
+        )
+
+        languages_url = repo.get(
+            "languages_url"
+        )
 
         if not languages_url:
             continue
@@ -138,7 +152,10 @@ def aggregate_language_totals(
             languages_url,
         )
 
-        if not isinstance(language_map, dict):
+        if not isinstance(
+            language_map,
+            dict,
+        ):
             continue
 
         for language, byte_count in language_map.items():
@@ -154,7 +171,9 @@ def top_languages(
     totals: dict[str, int],
     limit: int = 4,
 ) -> list[dict[str, float | int | str]]:
-    total_bytes = sum(totals.values())
+    total_bytes = sum(
+        totals.values()
+    )
 
     if total_bytes <= 0:
         return []
@@ -165,7 +184,9 @@ def top_languages(
         reverse=True,
     )
 
-    result: list[dict[str, float | int | str]] = []
+    result: list[
+        dict[str, float | int | str]
+    ] = []
 
     for language, byte_count in ranked[:limit]:
         percentage = (
@@ -188,7 +209,9 @@ def top_languages(
 # ---------------------------------------------------------------------------
 
 def mori_language_verdict(
-    languages: list[dict[str, float | int | str]],
+    languages: list[
+        dict[str, float | int | str]
+    ],
 ) -> str:
     if not languages:
         return (
@@ -203,30 +226,120 @@ def mori_language_verdict(
 
     top = names[0]
 
-    if {"C#", "TypeScript"}.issubset(set(names[:4])):
+    top_percentage = float(
+        languages[0]["percentage"]
+    )
+
+    # Dominant-language verdicts take priority.
+    #
+    # Otherwise a tiny amount of TypeScript + C# can trick MORI
+    # into calling a 93% C profile "full-stack", which is nonsense.
+    if top_percentage >= 60:
+        dominant_verdicts = {
+            "C": (
+                "You were offered abstractions. "
+                "You declined."
+            ),
+            "C++": (
+                "Memory management has become recreational."
+            ),
+            "C#": (
+                "Enterprise sorcery has consumed the operator."
+            ),
+            "Python": (
+                "Indentation appears to have become a lifestyle."
+            ),
+            "JavaScript": (
+                "Chaos has achieved majority control."
+            ),
+            "TypeScript": (
+                "JavaScript has been placed under supervision. "
+                "Good."
+            ),
+            "Rust": (
+                "The borrow checker now appears to be your guardian."
+            ),
+            "Go": (
+                "Suspiciously practical. "
+                "I expected more drama."
+            ),
+            "Java": (
+                "The factories have achieved self-governance."
+            ),
+            "Shell": (
+                "The shell script is no longer a script. "
+                "It is infrastructure."
+            ),
+            "PowerShell": (
+                "The command line has become contractual paperwork."
+            ),
+            "HTML": (
+                "You have apparently committed to moving boxes."
+            ),
+            "CSS": (
+                "The boxes have won."
+            ),
+            "Nix": (
+                "Oh dear. "
+                "It has become ideological."
+            ),
+            "SQL": (
+                "The database has become the primary conversational partner."
+            ),
+            "Assembly": (
+                "You descended beneath abstraction "
+                "and chose to remain there."
+            ),
+        }
+
+        return dominant_verdicts.get(
+            top,
+            f"{top} has consumed the operator. "
+            "I assume this was intentional.",
+        )
+
+    # Interesting combinations only matter if no single language dominates.
+    top_names = set(
+        names[:4]
+    )
+
+    if {
+        "C#",
+        "TypeScript",
+    }.issubset(top_names):
         return (
             "Full-stack tendencies detected. "
             "Regrettably competent."
         )
 
-    if {"Python", "Shell"}.issubset(set(names[:4])):
+    if {
+        "Python",
+        "Shell",
+    }.issubset(top_names):
         return (
             "Automation has consumed the operator. "
             "I approve, cautiously."
         )
 
-    if {"C", "C++"}.issubset(set(names[:4])):
+    if {
+        "C",
+        "C++",
+    }.issubset(top_names):
         return (
             "Pointers and consequences. "
             "A personality trait, apparently."
         )
 
-    if {"HTML", "CSS"}.issubset(set(names[:4])):
+    if {
+        "HTML",
+        "CSS",
+    }.issubset(top_names):
         return (
             "You have been moving boxes again. "
             "Remarkable."
         )
 
+    # Ordinary top-language verdicts.
     verdicts = {
         "C": (
             "You were offered abstractions. "
@@ -297,82 +410,53 @@ def mori_language_verdict(
 
 
 # ---------------------------------------------------------------------------
-# Animated expanding bars
+# ASCII bar helpers
 # ---------------------------------------------------------------------------
 
-def render_expanding_bar(
-    *,
-    x: int,
-    y: int,
-    fill_width: int,
-    height: int,
-    delay: float,
-    duration: float,
-    bar_id: str,
-    color: str,
-) -> list[str]:
+def ascii_bar(
+    percentage: float,
+    width: int = 24,
+) -> tuple[str, str]:
     """
-    Render an expanding bar with a static fallback.
+    Return the filled and empty sections of a fixed-width bar.
 
-    If SVG animation is unsupported, the static final bar remains visible.
-    If animation is supported, the fallback is hidden immediately and the
-    animated bar expands at the configured delay.
+    Example:
+        percentage = 75
+        width = 8
+
+        filled -> ██████
+        empty  -> ░░
     """
 
-    if fill_width <= 0:
-        return []
+    filled_count = round(
+        (percentage / 100)
+        * width
+    )
 
-    radius = height / 2
-
-    return [
-        # Static fallback
-        (
-            f'<rect '
-            f'x="{x}" '
-            f'y="{y}" '
-            f'width="{fill_width}" '
-            f'height="{height}" '
-            f'rx="{radius}" '
-            f'fill="{color}">'
-            f'<set '
-            f'attributeName="opacity" '
-            f'to="0" '
-            f'begin="0s" '
-            f'fill="freeze"'
-            f'/>'
-            f'</rect>'
+    filled_count = max(
+        0,
+        min(
+            width,
+            filled_count,
         ),
+    )
 
-        # Animated bar
-        (
-            f'<rect '
-            f'x="{x}" '
-            f'y="{y}" '
-            f'width="0" '
-            f'height="{height}" '
-            f'rx="{radius}" '
-            f'fill="{color}" '
-            f'opacity="0">'
-            f'<set '
-            f'attributeName="opacity" '
-            f'to="1" '
-            f'begin="{delay}s" '
-            f'fill="freeze"'
-            f'/>'
-            f'<animate '
-            f'attributeName="width" '
-            f'from="0" '
-            f'to="{fill_width}" '
-            f'begin="{delay}s" '
-            f'dur="{duration}s" '
-            f'fill="freeze" '
-            f'calcMode="spline" '
-            f'keyTimes="0;1" '
-            f'keySplines="0.2 0.8 0.2 1"'
-            f'/>'
-            f'</rect>'
-        ),
-    ]
+    empty_count = (
+        width - filled_count
+    )
+
+    filled = (
+        "█" * filled_count
+    )
+
+    empty = (
+        "░" * empty_count
+    )
+
+    return (
+        filled,
+        empty,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -381,13 +465,17 @@ def render_expanding_bar(
 
 def render_svg(
     username: str,
-    languages: list[dict[str, float | int | str]],
+    languages: list[
+        dict[str, float | int | str]
+    ],
 ) -> str:
     width = 690
     height = 245
 
     verdict = escape(
-        mori_language_verdict(languages)
+        mori_language_verdict(
+            languages
+        )
     )
 
     parts = [
@@ -401,14 +489,16 @@ def render_svg(
 
         (
             f'<title id="title">'
-            f'{escape(username)} language distribution'
+            f'{escape(username)} '
+            f'language distribution'
             f'</title>'
         ),
 
         (
             f'<desc id="desc">'
-            f'MORI language analysis card showing the most used '
-            f'languages for {escape(username)}.'
+            f'MORI language analysis card showing '
+            f'the most used languages for '
+            f'{escape(username)}.'
             f'</desc>'
         ),
 
@@ -465,81 +555,136 @@ def render_svg(
     ]
 
     if not languages:
-        parts.extend(
-            [
-                f'<text '
-                f'x="48" '
-                f'y="98" '
-                f'fill="{TEXT}" '
-                f'font-family="{MONO}" '
-                f'font-size="12">'
-                f'No language data available.'
-                f'</text>',
-            ]
+        parts.append(
+            f'<text '
+            f'x="48" '
+            f'y="108" '
+            f'fill="{TEXT}" '
+            f'font-family="{MONO}" '
+            f'font-size="12">'
+            f'No language data available.'
+            f'</text>'
         )
+
     else:
         label_x = 48
-        rail_x = 190
-        rail_width = 320
+        bar_x = 180
         percent_x = 632
 
-        for index, language in enumerate(languages):
-            name = escape(str(language["name"]))
-            percentage = float(language["percentage"])
+        bar_chars = 24
 
-            label_y = 78 + index * 24
-            rail_y = 84 + index * 24
-            fill_width = round(
-                rail_width * (percentage / 100)
-            )
-
-            delay = index * 0.12
-            duration = 0.55
-
-            parts.extend(
-                [
-                    f'<text '
-                    f'x="{label_x}" '
-                    f'y="{label_y}" '
-                    f'fill="{TEXT}" '
-                    f'font-family="{MONO}" '
-                    f'font-size="11" '
-                    f'font-weight="700">'
-                    f'{name}'
-                    f'</text>',
-
-                    f'<rect '
-                    f'x="{rail_x}" '
-                    f'y="{rail_y}" '
-                    f'width="{rail_width}" '
-                    f'height="10" '
-                    f'rx="5" '
-                    f'fill="{RAIL}"'
-                    f'/>',
-
-                    f'<text '
-                    f'x="{percent_x}" '
-                    f'y="{label_y}" '
-                    f'text-anchor="end" '
-                    f'fill="{MUTED}" '
-                    f'font-family="{MONO}" '
-                    f'font-size="10">'
-                    f'{percentage:.1f}%'
-                    f'</text>',
-                ]
-            )
-
-            parts.extend(
-                render_expanding_bar(
-                    x=rail_x,
-                    y=rail_y,
-                    fill_width=fill_width,
-                    height=10,
-                    delay=delay,
-                    duration=duration,
-                    bar_id=f"lang-bar-{index}",
-                    color=ACCENT_BRIGHT,
+        for index, language in enumerate(
+            languages
+        ):
+            name = escape(
+                str(
+                    language["name"]
                 )
+            )
+
+            percentage = float(
+                language["percentage"]
+            )
+
+            row_y = (
+                78
+                + index * 24
+            )
+
+            (
+                filled,
+                empty,
+            ) = ascii_bar(
+                percentage,
+                width=bar_chars,
+            )
+
+            # Language name
+            parts.append(
+                f'<text '
+                f'x="{label_x}" '
+                f'y="{row_y}" '
+                f'fill="{TEXT}" '
+                f'font-family="{MONO}" '
+                f'font-size="11" '
+                f'font-weight="700">'
+                f'{name}'
+                f'</text>'
+            )
+
+            # Opening bracket
+            parts.append(
+                f'<text '
+                f'x="{bar_x}" '
+                f'y="{row_y}" '
+                f'fill="{MUTED}" '
+                f'font-family="{MONO}" '
+                f'font-size="11">'
+                f'['
+                f'</text>'
+            )
+
+            # Filled section
+            parts.append(
+                f'<text '
+                f'x="{bar_x + 8}" '
+                f'y="{row_y}" '
+                f'fill="{ACCENT_BRIGHT}" '
+                f'font-family="{MONO}" '
+                f'font-size="11">'
+                f'{escape(filled)}'
+                f'</text>'
+            )
+
+            # Empty section starts after the filled chars.
+            #
+            # Monospace text at 11px is roughly 6.6px per character.
+            empty_x = (
+                bar_x
+                + 8
+                + len(filled) * 6.6
+            )
+
+            parts.append(
+                f'<text '
+                f'x="{empty_x:.1f}" '
+                f'y="{row_y}" '
+                f'fill="{MUTED}" '
+                f'font-family="{MONO}" '
+                f'font-size="11">'
+                f'{escape(empty)}'
+                f'</text>'
+            )
+
+            # Closing bracket
+            closing_x = (
+                bar_x
+                + 8
+                + bar_chars * 6.6
+            )
+
+            parts.append(
+                f'<text '
+                f'x="{closing_x:.1f}" '
+                f'y="{row_y}" '
+                f'fill="{MUTED}" '
+                f'font-family="{MONO}" '
+                f'font-size="11">'
+                f']'
+                f'</text>'
+            )
+
+            # Percentage
+            parts.append(
+                f'<text '
+                f'x="{percent_x}" '
+                f'y="{row_y}" '
+                f'text-anchor="end" '
+                f'fill="{MUTED}" '
+                f'font-family="{MONO}" '
+                f'font-size="10">'
+                f'{percentage:.1f}%'
+                f'</text>'
             )
 
     parts.extend(
@@ -554,7 +699,7 @@ def render_svg(
             f'stroke-width="1"'
             f'/>',
 
-            # Verdict
+            # The beast
             f'<text '
             f'x="28" '
             f'y="207" '
@@ -565,6 +710,7 @@ def render_svg(
             f'{escape(MORI)}'
             f'</text>',
 
+            # Verdict
             f'<text '
             f'x="110" '
             f'y="207" '
@@ -574,6 +720,7 @@ def render_svg(
             f'{verdict}'
             f'</text>',
 
+            # Tiny footer
             f'<text '
             f'x="{width - 28}" '
             f'y="222" '
@@ -588,7 +735,10 @@ def render_svg(
         ]
     )
 
-    return "\n".join(parts) + "\n"
+    return (
+        "\n".join(parts)
+        + "\n"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -610,17 +760,22 @@ def main() -> int:
             "GITHUB_TOKEN is required.",
             file=sys.stderr,
         )
+
         return 1
 
     try:
-        repos = fetch_owned_repositories(
-            token,
-            username,
+        repos = (
+            fetch_owned_repositories(
+                token,
+                username,
+            )
         )
 
-        totals = aggregate_language_totals(
-            token,
-            repos,
+        totals = (
+            aggregate_language_totals(
+                token,
+                repos,
+            )
         )
 
         languages = top_languages(
@@ -645,25 +800,33 @@ def main() -> int:
 
     except Exception as exc:
         print(
-            "Failed to generate MORI language card: "
-            f"{exc}",
+            "Failed to generate "
+            f"MORI language card: {exc}",
             file=sys.stderr,
         )
+
         return 1
 
     print(
-        f"Generated: {OUTPUT_PATH.relative_to(ROOT)}"
+        f"Generated: "
+        f"{OUTPUT_PATH.relative_to(ROOT)}"
     )
 
     if languages:
-        print("Top languages:")
+        print(
+            "Top languages:"
+        )
+
         for item in languages:
             print(
                 f"  - {item['name']}: "
                 f"{float(item['percentage']):.1f}%"
             )
+
     else:
-        print("No language data available.")
+        print(
+            "No language data available."
+        )
 
     print(
         "MORI verdict: "
@@ -674,4 +837,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(
+        main()
+    )
