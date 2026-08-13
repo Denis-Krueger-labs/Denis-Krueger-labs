@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="690" height="245" viewBox="0 0 690 245" role="img" aria-labelledby="title desc">
+<title id="title">Denis-Krueger-labs language distribution</title>
+<desc id="desc">MORI language analysis card showing the most used languages for Denis-Krueger-labs.</desc>
+<rect width="690" height="245" rx="14" fill="#0b0d10"/>
+<rect x="1" y="1" width="688" height="243" rx="13" fill="none" stroke="#3b2b4f"/>
+<text x="28" y="31" fill="#9b6fd3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700">MORI // OPERATOR DIALECTS</text>
+<text x="662" y="31" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">language distribution audit</text>
+<rect x="28" y="48" width="634" height="118" rx="10" fill="#161a20" stroke="#3b2b4f"/>
+<text x="48" y="78" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">C</text>
+<rect x="190" y="84" width="320" height="10" rx="5" fill="#222831"/>
+<text x="632" y="78" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">92.8%</text>
+<rect x="190" y="84" width="297" height="10" rx="5.0" fill="#a878e3"><set attributeName="opacity" to="0" begin="0s" fill="freeze"/></rect>
+<rect x="190" y="84" width="0" height="10" rx="5.0" fill="#a878e3" opacity="0"><set attributeName="opacity" to="1" begin="0.0s" fill="freeze"/><animate attributeName="width" from="0" to="297" begin="0.0s" dur="0.55s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/></rect>
+<text x="48" y="102" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">C#</text>
+<rect x="190" y="108" width="320" height="10" rx="5" fill="#222831"/>
+<text x="632" y="102" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">2.7%</text>
+<rect x="190" y="108" width="9" height="10" rx="5.0" fill="#a878e3"><set attributeName="opacity" to="0" begin="0s" fill="freeze"/></rect>
+<rect x="190" y="108" width="0" height="10" rx="5.0" fill="#a878e3" opacity="0"><set attributeName="opacity" to="1" begin="0.12s" fill="freeze"/><animate attributeName="width" from="0" to="9" begin="0.12s" dur="0.55s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/></rect>
+<text x="48" y="126" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">CSS</text>
+<rect x="190" y="132" width="320" height="10" rx="5" fill="#222831"/>
+<text x="632" y="126" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">1.7%</text>
+<rect x="190" y="132" width="5" height="10" rx="5.0" fill="#a878e3"><set attributeName="opacity" to="0" begin="0s" fill="freeze"/></rect>
+<rect x="190" y="132" width="0" height="10" rx="5.0" fill="#a878e3" opacity="0"><set attributeName="opacity" to="1" begin="0.24s" fill="freeze"/><animate attributeName="width" from="0" to="5" begin="0.24s" dur="0.55s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/></rect>
+<text x="48" y="150" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">TypeScript</text>
+<rect x="190" y="156" width="320" height="10" rx="5" fill="#222831"/>
+<text x="632" y="150" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">1.1%</text>
+<rect x="190" y="156" width="3" height="10" rx="5.0" fill="#a878e3"><set attributeName="opacity" to="0" begin="0s" fill="freeze"/></rect>
+<rect x="190" y="156" width="0" height="10" rx="5.0" fill="#a878e3" opacity="0"><set attributeName="opacity" to="1" begin="0.36s" fill="freeze"/><animate attributeName="width" from="0" to="3" begin="0.36s" dur="0.55s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/></rect>
+<line x1="28" y1="181" x2="662" y2="181" stroke="#3b2b4f" stroke-width="1"/>
+<text x="28" y="207" fill="#9b6fd3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">/•᷅‎‎•᷄\੭</text>
+<text x="110" y="207" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">Full-stack tendencies detected. Regrettably competent.</text>
+<text x="662" y="222" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9">mori language assessment // berlin</text>
+</svg>
