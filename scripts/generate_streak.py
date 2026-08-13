@@ -499,13 +499,17 @@ def render_number_reel(
     color: str,
     reel_id: str,
     duration: float,
+    delay: float = 0.0,
     width: int = 120,
 ) -> list[str]:
     """
     Render a flip-style number reel with a static fallback.
 
-    If SVG animation is unsupported, the final target number remains
-    visible instead of leaving the counter stuck at zero.
+    In browsers that support SVG animation, the static final number is
+    hidden immediately and the reel becomes visible at `delay`.
+
+    If SVG animation is unsupported, the <set> elements are ignored and
+    the correct final target number remains visible.
     """
 
     values = counter_values(target)
@@ -522,14 +526,8 @@ def render_number_reel(
         ]
 
     row_height = font_size + 14
-
-    clip_y = (
-        baseline_y - font_size
-    )
-
-    clip_height = (
-        font_size + 12
-    )
+    clip_y = baseline_y - font_size
+    clip_height = font_size + 12
 
     offsets = [
         -(index * row_height)
@@ -557,9 +555,10 @@ def render_number_reel(
 
         "</defs>",
 
-        # Static final value.
+        # Static fallback.
         #
-        # If SMIL animation is unsupported, this remains visible.
+        # Animation-capable renderers hide this immediately.
+        # Non-animation renderers ignore <set> and keep the real value.
         (
             f'<text '
             f'x="{x}" '
@@ -578,9 +577,7 @@ def render_number_reel(
             f'</text>'
         ),
 
-        # Animated reel starts hidden.
-        #
-        # Browsers supporting SVG animation reveal it immediately.
+        # Animated reel stays hidden until its scheduled start.
         (
             f'<g '
             f'clip-path="url(#{reel_id}-clip)" '
@@ -588,7 +585,7 @@ def render_number_reel(
             f'<set '
             f'attributeName="opacity" '
             f'to="1" '
-            f'begin="0s" '
+            f'begin="{delay}s" '
             f'fill="freeze"'
             f'/>'
         ),
@@ -600,6 +597,7 @@ def render_number_reel(
             f'attributeName="transform" '
             f'type="translate" '
             f'values="{transform_values}" '
+            f'begin="{delay}s" '
             f'dur="{duration}s" '
             f'calcMode="discrete" '
             f'fill="freeze"'
@@ -768,7 +766,7 @@ def render_svg(
         f'</text>',
     ]
 
-    # Animated current streak counter
+    # Current streak starts immediately.
     parts.extend(
         render_number_reel(
             x=48,
@@ -778,6 +776,7 @@ def render_svg(
             color=TEXT,
             reel_id="current-streak",
             duration=1.25,
+            delay=0.0,
             width=120,
         )
     )
@@ -826,7 +825,7 @@ def render_svg(
         ]
     )
 
-    # Animated longest streak counter
+    # Longest streak waits until current streak has finished.
     parts.extend(
         render_number_reel(
             x=452,
@@ -836,6 +835,7 @@ def render_svg(
             color=TEXT,
             reel_id="longest-streak",
             duration=1.45,
+            delay=1.35,
             width=100,
         )
     )
