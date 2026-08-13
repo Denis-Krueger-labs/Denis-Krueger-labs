@@ -114,7 +114,7 @@ def fetch_owned_repositories(
             break
 
         for repo in page_data:
-            # Forks do not count as operator work.
+            # Forks are not counted as operator work.
             if repo.get("fork"):
                 continue
 
@@ -126,34 +126,25 @@ def fetch_owned_repositories(
 
 
 # ---------------------------------------------------------------------------
-# Repository-weighted language analysis
+# Raw GitHub language-byte analysis
 # ---------------------------------------------------------------------------
 
-def calculate_repo_weighted_languages(
+def aggregate_language_totals(
     token: str,
     repos: list[dict[str, Any]],
-) -> tuple[dict[str, float], int]:
+) -> dict[str, int]:
     """
-    Give every repository equal influence.
+    Aggregate GitHub Linguist byte counts across all owned,
+    non-fork repositories.
 
-    Example:
+    This deliberately uses raw classified source bytes.
 
-        Repo A:
-            C      90%
-            Python 10%
-
-        Repo B:
-            C#     100%
-
-    Repo A and Repo B each contribute exactly one repository worth
-    of weight, regardless of how many source bytes they contain.
-
-    This prevents one giant repository from dominating the entire
-    profile language distribution.
+    Large repositories therefore have more influence than small
+    repositories, matching the normal GitHub language-distribution
+    concept.
     """
 
-    scores: dict[str, float] = {}
-    counted_repositories = 0
+    totals: dict[str, int] = {}
 
     for repo in repos:
         repo_name = str(
@@ -185,8 +176,6 @@ def calculate_repo_weighted_languages(
         ):
             continue
 
-        language_bytes: dict[str, int] = {}
-
         for language, byte_count in language_map.items():
             byte_count_int = int(
                 byte_count
@@ -195,82 +184,56 @@ def calculate_repo_weighted_languages(
             if byte_count_int <= 0:
                 continue
 
-            language_bytes[
+            totals[
                 str(language)
-            ] = byte_count_int
-
-        repo_total = sum(
-            language_bytes.values()
-        )
-
-        # Empty / documentation-only repositories have no useful
-        # language vote.
-        if repo_total <= 0:
-            print(
-                f"Skipping language-empty repository: "
-                f"{repo_name}"
-            )
-            continue
-
-        counted_repositories += 1
-
-        print(
-            f"  repository weight: 1/{counted_repositories}"
-        )
-
-        for language, byte_count in language_bytes.items():
-            repo_share = (
-                byte_count / repo_total
-            )
-
-            scores[language] = (
-                scores.get(
-                    language,
-                    0.0,
+            ] = (
+                totals.get(
+                    str(language),
+                    0,
                 )
-                + repo_share
+                + byte_count_int
             )
 
-    return (
-        scores,
-        counted_repositories,
-    )
+    return totals
 
 
 def top_languages(
-    scores: dict[str, float],
-    repository_count: int,
+    totals: dict[str, int],
     limit: int = 5,
-) -> list[dict[str, float | str]]:
+) -> list[dict[str, float | int | str]]:
     """
-    Convert accumulated per-repository shares into percentages.
+    Return the most-used languages.
 
-    Since every counted repository contributes a total weight of 1,
-    dividing each language score by the number of repositories gives
-    its average repository-weighted presence.
+    Percentages are calculated against ALL classified language bytes,
+    not merely against the displayed top languages.
     """
 
-    if repository_count <= 0:
+    total_bytes = sum(
+        totals.values()
+    )
+
+    if total_bytes <= 0:
         return []
 
     ranked = sorted(
-        scores.items(),
+        totals.items(),
         key=lambda item: item[1],
         reverse=True,
     )
 
     result: list[
-        dict[str, float | str]
+        dict[str, float | int | str]
     ] = []
 
-    for language, score in ranked[:limit]:
+    for language, byte_count in ranked[:limit]:
         percentage = (
-            score / repository_count
+            byte_count / total_bytes
         ) * 100
 
         result.append(
             {
                 "name": language,
+                "bytes": byte_count,
                 "percentage": percentage,
             }
         )
@@ -284,7 +247,7 @@ def top_languages(
 
 def mori_language_verdict(
     languages: list[
-        dict[str, float | str]
+        dict[str, float | int | str]
     ],
 ) -> str:
     if not languages:
@@ -304,8 +267,10 @@ def mori_language_verdict(
         languages[0]["percentage"]
     )
 
-    # A genuinely dominant repository-weighted language still
-    # deserves special judgement.
+    # Dominant-language verdicts take priority.
+    #
+    # Otherwise a tiny secondary language can cause MORI to make
+    # completely ridiculous conclusions about the operator.
     if top_percentage >= 60:
         dominant_verdicts = {
             "C": (
@@ -362,6 +327,9 @@ def mori_language_verdict(
             "Assembly": (
                 "You descended beneath abstraction "
                 "and chose to remain there."
+            ),
+            "TeX": (
+                "The document has become infrastructure."
             ),
         }
 
@@ -459,6 +427,10 @@ def mori_language_verdict(
             "You moved the box three pixels. "
             "How triumphant."
         ),
+        "SCSS": (
+            "The stylesheet has acquired abstractions. "
+            "Concerning."
+        ),
         "Nix": (
             "You configured one package. "
             "The universe is now declarative."
@@ -471,6 +443,9 @@ def mori_language_verdict(
             "You descended beneath abstraction. "
             "I shall fetch a lantern."
         ),
+        "TeX": (
+            "Typesetting has become suspiciously serious."
+        ),
     }
 
     return verdicts.get(
@@ -481,35 +456,8 @@ def mori_language_verdict(
 
 
 # ---------------------------------------------------------------------------
-# ASCII bar helpers
+# Animated ASCII bars
 # ---------------------------------------------------------------------------
-
-def ascii_bar_counts(
-    percentage: float,
-    width: int = 40,
-) -> tuple[int, int]:
-    filled_count = round(
-        (percentage / 100)
-        * width
-    )
-
-    filled_count = max(
-        0,
-        min(
-            width,
-            filled_count,
-        ),
-    )
-
-    empty_count = (
-        width - filled_count
-    )
-
-    return (
-        filled_count,
-        empty_count,
-    )
-
 
 def render_ascii_bar(
     *,
@@ -520,29 +468,17 @@ def render_ascii_bar(
     index: int,
 ) -> list[str]:
     """
-    Draw an animated terminal-style ASCII progress bar.
+    Draw an animated terminal-style progress bar.
 
-    The empty rail is always visible.
+    The complete muted rail remains visible.
 
-    The purple block section is revealed from left to right through
-    an animated clipping rectangle.
+    A full purple block layer sits above it and is clipped to the exact
+    percentage. This avoids rounding tiny percentages down to zero and
+    gives us a smooth left-to-right loading animation.
     """
 
     char_width = 6.6
     bracket_width = 8
-
-    filled_count, _ = ascii_bar_counts(
-        percentage,
-        width=width_chars,
-    )
-
-    rail_text = (
-        "░" * width_chars
-    )
-
-    fill_text = (
-        "█" * filled_count
-    )
 
     content_x = (
         x + bracket_width
@@ -553,9 +489,20 @@ def render_ascii_bar(
         * char_width
     )
 
+    clamped_percentage = max(
+        0.0,
+        min(
+            100.0,
+            percentage,
+        ),
+    )
+
     final_fill_width = (
-        filled_count
-        * char_width
+        bar_pixel_width
+        * (
+            clamped_percentage
+            / 100.0
+        )
     )
 
     closing_x = (
@@ -563,18 +510,30 @@ def render_ascii_bar(
         + bar_pixel_width
     )
 
+    rail_text = (
+        "░" * width_chars
+    )
+
+    # Use a complete block layer.
+    #
+    # The clip determines how much is actually visible. That means
+    # even 0.5% can produce a tiny visible sliver.
+    fill_text = (
+        "█" * width_chars
+    )
+
     clip_id = (
         f"language-fill-{index}"
     )
 
-    # Each language starts slightly after the previous one.
     delay = (
         index * 0.14
     )
 
-    duration = 0.65
+    duration = 0.70
 
-    parts = [
+    return [
+        # Clip definition.
         "<defs>",
 
         (
@@ -583,14 +542,14 @@ def render_ascii_bar(
             f'<rect '
             f'x="{content_x}" '
             f'y="{y - 13}" '
-            f'width="{final_fill_width:.1f}" '
+            f'width="{final_fill_width:.2f}" '
             f'height="18">'
             f'<animate '
             f'attributeName="width" '
             f'from="0" '
-            f'to="{final_fill_width:.1f}" '
-            f'begin="{delay}s" '
-            f'dur="{duration}s" '
+            f'to="{final_fill_width:.2f}" '
+            f'begin="{delay:.2f}s" '
+            f'dur="{duration:.2f}s" '
             f'fill="freeze" '
             f'calcMode="spline" '
             f'keyTimes="0;1" '
@@ -602,7 +561,7 @@ def render_ascii_bar(
 
         "</defs>",
 
-        # [
+        # Opening bracket.
         (
             f'<text '
             f'x="{x}" '
@@ -614,7 +573,7 @@ def render_ascii_bar(
             f'</text>'
         ),
 
-        # ░░░░░░░░░░░░░░░░░░░░
+        # Empty rail.
         (
             f'<text '
             f'x="{content_x}" '
@@ -626,7 +585,7 @@ def render_ascii_bar(
             f'</text>'
         ),
 
-        # ███████...
+        # Animated purple fill.
         (
             f'<text '
             f'x="{content_x}" '
@@ -639,7 +598,7 @@ def render_ascii_bar(
             f'</text>'
         ),
 
-        # ]
+        # Closing bracket.
         (
             f'<text '
             f'x="{closing_x:.1f}" '
@@ -652,8 +611,6 @@ def render_ascii_bar(
         ),
     ]
 
-    return parts
-
 
 # ---------------------------------------------------------------------------
 # SVG rendering
@@ -662,9 +619,8 @@ def render_ascii_bar(
 def render_svg(
     username: str,
     languages: list[
-        dict[str, float | str]
+        dict[str, float | int | str]
     ],
-    repository_count: int,
 ) -> str:
     width = 690
     height = 245
@@ -687,15 +643,15 @@ def render_svg(
         (
             f'<title id="title">'
             f'{escape(username)} '
-            f'repository-weighted language distribution'
+            f'language distribution'
             f'</title>'
         ),
 
         (
             f'<desc id="desc">'
-            f'MORI repository-weighted language analysis '
-            f'across {repository_count} repositories for '
-            f'{escape(username)}.'
+            f'MORI language analysis card showing '
+            f'raw GitHub Linguist language-byte distribution '
+            f'for {escape(username)}.'
             f'</desc>'
         ),
 
@@ -736,7 +692,7 @@ def render_svg(
         f'fill="{MUTED}" '
         f'font-family="{MONO}" '
         f'font-size="10">'
-        f'repository-weighted audit'
+        f'language distribution audit'
         f'</text>',
 
         # Main panel
@@ -765,13 +721,16 @@ def render_svg(
 
     else:
         label_x = 48
-        bar_x = 170
+
+        # Long terminal bars.
+        bar_x = 158
+
         percent_x = 632
 
-        # Nice long terminal bars.
-        bar_chars = 40
+        # Expanded from the old 24-character rail.
+        bar_chars = 54
 
-        # Five rows fit neatly into the existing panel.
+        # Five rows.
         row_start = 72
         row_gap = 20
 
@@ -793,7 +752,7 @@ def render_svg(
                 + index * row_gap
             )
 
-            # Language name
+            # Language name.
             parts.append(
                 f'<text '
                 f'x="{label_x}" '
@@ -806,7 +765,7 @@ def render_svg(
                 f'</text>'
             )
 
-            # Animated ASCII bar
+            # Animated ASCII bar.
             parts.extend(
                 render_ascii_bar(
                     x=bar_x,
@@ -817,7 +776,7 @@ def render_svg(
                 )
             )
 
-            # Percentage
+            # Percentage.
             parts.append(
                 f'<text '
                 f'x="{percent_x}" '
@@ -871,8 +830,7 @@ def render_svg(
             f'fill="{MUTED}" '
             f'font-family="{MONO}" '
             f'font-size="9">'
-            f'mori dialect assessment // '
-            f'{repository_count} repositories'
+            f'raw linguist bytes // top 5'
             f'</text>',
 
             "</svg>",
@@ -908,31 +866,24 @@ def main() -> int:
         return 1
 
     try:
-        repos = (
-            fetch_owned_repositories(
-                token,
-                username,
-            )
+        repos = fetch_owned_repositories(
+            token,
+            username,
         )
 
-        (
-            language_scores,
-            repository_count,
-        ) = calculate_repo_weighted_languages(
+        totals = aggregate_language_totals(
             token,
             repos,
         )
 
         languages = top_languages(
-            language_scores,
-            repository_count,
+            totals,
             limit=5,
         )
 
         svg = render_svg(
             username=username,
             languages=languages,
-            repository_count=repository_count,
         )
 
         OUTPUT_PATH.parent.mkdir(
@@ -959,20 +910,30 @@ def main() -> int:
         f"{OUTPUT_PATH.relative_to(ROOT)}"
     )
 
+    total_bytes = sum(
+        totals.values()
+    )
+
     print(
-        f"Repositories included: "
-        f"{repository_count}"
+        f"Repositories scanned: "
+        f"{len(repos)}"
+    )
+
+    print(
+        f"Classified language bytes: "
+        f"{total_bytes:,}"
     )
 
     if languages:
         print(
-            "Repository-weighted languages:"
+            "Top languages:"
         )
 
         for item in languages:
             print(
                 f"  - {item['name']}: "
-                f"{float(item['percentage']):.1f}%"
+                f"{float(item['percentage']):.1f}% "
+                f"({int(item['bytes']):,} bytes)"
             )
 
     else:
