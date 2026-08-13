@@ -1,8 +1,15 @@
 from __future__ import annotations
 
-from datetime import date, timedelta
+import json
+import os
+import sys
+import urllib.error
+import urllib.request
+
+from datetime import date, datetime, time, timedelta, timezone
 from html import escape
 from pathlib import Path
+from typing import Any
 from zoneinfo import ZoneInfo
 
 
@@ -10,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "assets" / "streak.svg"
 
 BERLIN = ZoneInfo("Europe/Berlin")
+GRAPHQL_URL = "https://api.github.com/graphql"
 
 
 # ---------------------------------------------------------------------------
@@ -82,6 +90,40 @@ STREAK_TIERS = (
 )
 
 
+# ---------------------------------------------------------------------------
+# GraphQL queries
+# ---------------------------------------------------------------------------
+
+USER_QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    createdAt
+  }
+}
+"""
+
+CONTRIBUTIONS_QUERY = """
+query($login: String!, $from: DateTime!, $to: DateTime!) {
+  user(login: $login) {
+    contributionsCollection(from: $from, to: $to) {
+      contributionCalendar {
+        weeks {
+          contributionDays {
+            date
+            contributionCount
+          }
+        }
+      }
+    }
+  }
+}
+"""
+
+
+# ---------------------------------------------------------------------------
+# Tier helpers
+# ---------------------------------------------------------------------------
+
 def streak_tier(streak: int) -> dict[str, object]:
     active = STREAK_TIERS[0]
 
@@ -110,10 +152,187 @@ def progress_message(streak: int) -> str:
 
     target = int(next_tier["min"])
     remaining = target - streak
-
     unit = "day" if remaining == 1 else "days"
 
     return f"{remaining} {unit} until {next_tier['rank']}"
+
+
+# ---------------------------------------------------------------------------
+# GitHub API helpers
+# ---------------------------------------------------------------------------
+
+def graphql_request(
+    token: str,
+    query: str,
+    variables: dict[str, Any],
+) -> dict[str, Any]:
+    payload = json.dumps(
+        {
+            "query": query,
+            "variables": variables,
+        }
+    ).encode("utf-8")
+
+    request = urllib.request.Request(
+        GRAPHQL_URL,
+        data=payload,
+        method="POST",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+            "User-Agent": "mori-profile-streak-generator",
+        },
+    )
+
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            result = json.loads(response.read().decode("utf-8"))
+
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(
+            f"GitHub API returned HTTP {exc.code}: {body}"
+        ) from exc
+
+    except urllib.error.URLError as exc:
+        raise RuntimeError(
+            f"Could not reach GitHub API: {exc.reason}"
+        ) from exc
+
+    if result.get("errors"):
+        raise RuntimeError(
+            f"GitHub GraphQL error: {result['errors']}"
+        )
+
+    return result
+
+
+def get_account_created_at(
+    token: str,
+    username: str,
+) -> datetime:
+    result = graphql_request(
+        token,
+        USER_QUERY,
+        {
+            "login": username,
+        },
+    )
+
+    user = result.get("data", {}).get("user")
+
+    if not user:
+        raise RuntimeError(
+            f"GitHub user not found: {username}"
+        )
+
+    created_at = user.get("createdAt")
+
+    if not created_at:
+        raise RuntimeError(
+            "GitHub did not return account creation time."
+        )
+
+    return datetime.fromisoformat(
+        created_at.replace("Z", "+00:00")
+    )
+
+
+def berlin_day_start(day: date) -> datetime:
+    return datetime.combine(
+        day,
+        time.min,
+        tzinfo=BERLIN,
+    )
+
+
+def berlin_day_end(day: date) -> datetime:
+    return (
+        datetime.combine(
+            day + timedelta(days=1),
+            time.min,
+            tzinfo=BERLIN,
+        )
+        - timedelta(microseconds=1)
+    )
+
+
+def fetch_contribution_range(
+    token: str,
+    username: str,
+    start_day: date,
+    end_day: date,
+) -> dict[date, int]:
+    start = berlin_day_start(start_day).astimezone(timezone.utc)
+    end = berlin_day_end(end_day).astimezone(timezone.utc)
+
+    result = graphql_request(
+        token,
+        CONTRIBUTIONS_QUERY,
+        {
+            "login": username,
+            "from": start.isoformat(),
+            "to": end.isoformat(),
+        },
+    )
+
+    user = result.get("data", {}).get("user")
+
+    if not user:
+        raise RuntimeError(
+            f"GitHub user not found: {username}"
+        )
+
+    calendar = user["contributionsCollection"]["contributionCalendar"]
+    contributions: dict[date, int] = {}
+
+    for week in calendar["weeks"]:
+        for day in week["contributionDays"]:
+            contribution_day = date.fromisoformat(day["date"])
+            contributions[contribution_day] = int(day["contributionCount"])
+
+    return contributions
+
+
+def fetch_contribution_history(
+    token: str,
+    username: str,
+    start_day: date,
+    end_day: date,
+) -> dict[date, int]:
+    """
+    Fetch contribution history in bounded chunks.
+
+    This keeps each GitHub contribution query comfortably below
+    the one-year range while still allowing multi-year streaks.
+    """
+
+    history: dict[date, int] = {}
+    current_start = start_day
+
+    while current_start <= end_day:
+        current_end = min(
+            current_start + timedelta(days=359),
+            end_day,
+        )
+
+        print(
+            "Fetching contribution history: "
+            f"{current_start.isoformat()} -> "
+            f"{current_end.isoformat()}"
+        )
+
+        chunk = fetch_contribution_range(
+            token,
+            username,
+            current_start,
+            current_end,
+        )
+
+        history.update(chunk)
+        current_start = current_end + timedelta(days=1)
+
+    return history
 
 
 # ---------------------------------------------------------------------------
@@ -155,7 +374,6 @@ def calculate_longest_streak(
 
     current_count = 0
     current_start: date | None = None
-
     cursor = start_day
 
     while cursor <= end_day:
@@ -169,7 +387,6 @@ def calculate_longest_streak(
                 longest_count = current_count
                 longest_start = current_start
                 longest_end = cursor
-
         else:
             current_count = 0
             current_start = None
@@ -231,23 +448,9 @@ def render_svg(
     rank = escape(str(tier["rank"]))
     verdict = escape(str(tier["verdict"]))
 
-    current_range = escape(
-        format_range(
-            current_start,
-            current_end,
-        )
-    )
-
-    longest_range = escape(
-        format_range(
-            longest_start,
-            longest_end,
-        )
-    )
-
-    progress = escape(
-        progress_message(current_streak)
-    )
+    current_range = escape(format_range(current_start, current_end))
+    longest_range = escape(format_range(longest_start, longest_end))
+    progress = escape(progress_message(current_streak))
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" '
@@ -258,16 +461,10 @@ def render_svg(
         '<title id="title">MORI streak card</title>',
         '<desc id="desc">A MORI-themed GitHub streak card.</desc>',
 
-        # Background
-        f'<rect width="{width}" height="{height}" '
-        f'rx="14" fill="{BACKGROUND}"/>',
-
-        # Outer border
-        f'<rect x="1" y="1" '
-        f'width="{width - 2}" height="{height - 2}" '
+        f'<rect width="{width}" height="{height}" rx="14" fill="{BACKGROUND}"/>',
+        f'<rect x="1" y="1" width="{width - 2}" height="{height - 2}" '
         f'rx="13" fill="none" stroke="{BORDER}"/>',
 
-        # Header
         f'<text x="28" y="31" fill="{ACCENT}" '
         f'font-family="{mono}" font-size="14" font-weight="700">'
         f'MORI // OPERATOR CONTINUITY'
@@ -278,7 +475,6 @@ def render_svg(
         f'field persistence monitor'
         f'</text>',
 
-        # Left panel: current streak
         f'<rect x="28" y="48" width="390" height="92" '
         f'rx="10" fill="{PANEL}" stroke="{BORDER}"/>',
 
@@ -302,7 +498,6 @@ def render_svg(
         f'{current_range}'
         f'</text>',
 
-        # Right panel: longest streak
         f'<rect x="432" y="48" width="230" height="92" '
         f'rx="10" fill="{PANEL}" stroke="{BORDER}"/>',
 
@@ -321,7 +516,6 @@ def render_svg(
         f'{longest_range}'
         f'</text>',
 
-        # Tier + progress
         f'<text x="28" y="166" fill="{ACCENT_BRIGHT}" '
         f'font-family="{mono}" font-size="12" font-weight="700">'
         f'{rank}'
@@ -332,11 +526,9 @@ def render_svg(
         f'{progress}'
         f'</text>',
 
-        # Divider
         f'<line x1="28" y1="181" x2="{width - 28}" y2="181" '
         f'stroke="{BORDER}" stroke-width="1"/>',
 
-        # Mori verdict
         f'<text x="28" y="207" fill="{ACCENT}" '
         f'font-family="{mono}" font-size="12" font-weight="700">'
         f'{escape(MORI)}'
@@ -347,7 +539,7 @@ def render_svg(
         f'{verdict}'
         f'</text>',
 
-        f'<text x="{width - 28}" y="222" text-anchor="end" '
+        f'<text x="{width - 28}" y="228" text-anchor="end" '
         f'fill="{MUTED}" font-family="{mono}" font-size="9">'
         f'mori familiar classification // berlin'
         f'</text>',
@@ -359,32 +551,81 @@ def render_svg(
 
 
 # ---------------------------------------------------------------------------
-# Local preview
+# Main
 # ---------------------------------------------------------------------------
 
 def main() -> int:
-    svg = render_svg(
-        current_streak=9,
-        current_start=date(2026, 8, 4),
-        current_end=date(2026, 8, 12),
-        longest_streak=13,
-        longest_start=date(2026, 7, 20),
-        longest_end=date(2026, 8, 1),
+    token = os.getenv("GITHUB_TOKEN")
+    username = os.getenv(
+        "GITHUB_USERNAME",
+        "Denis-Krueger-labs",
     )
 
-    OUTPUT_PATH.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
+    if not token:
+        print("GITHUB_TOKEN is required.", file=sys.stderr)
+        return 1
 
-    OUTPUT_PATH.write_text(
-        svg,
-        encoding="utf-8",
-    )
+    try:
+        today = datetime.now(BERLIN).date()
 
-    print(
-        f"Generated preview: {OUTPUT_PATH.relative_to(ROOT)}"
-    )
+        created_at = get_account_created_at(
+            token,
+            username,
+        )
+
+        created_day = created_at.astimezone(BERLIN).date()
+
+        contributions = fetch_contribution_history(
+            token,
+            username,
+            created_day,
+            today,
+        )
+
+        current_streak, current_start, current_end = calculate_current_streak(
+            contributions,
+            today,
+        )
+
+        longest_streak, longest_start, longest_end = calculate_longest_streak(
+            contributions,
+            created_day,
+            today,
+        )
+
+        svg = render_svg(
+            current_streak=current_streak,
+            current_start=current_start,
+            current_end=current_end,
+            longest_streak=longest_streak,
+            longest_start=longest_start,
+            longest_end=longest_end,
+        )
+
+        OUTPUT_PATH.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        OUTPUT_PATH.write_text(
+            svg,
+            encoding="utf-8",
+        )
+
+    except Exception as exc:
+        print(
+            f"Failed to generate MORI streak card: {exc}",
+            file=sys.stderr,
+        )
+        return 1
+
+    tier = streak_tier(current_streak)
+
+    print(f"Generated: {OUTPUT_PATH.relative_to(ROOT)}")
+    print(f"Current streak: {current_streak} days")
+    print(f"Longest streak: {longest_streak} days")
+    print(f"MORI classification: {tier['rank']}")
+    print(f"MORI verdict: {tier['verdict']}")
 
     return 0
 
