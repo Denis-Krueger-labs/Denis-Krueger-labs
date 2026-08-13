@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - "scripts/generate_activity.py"
+      - "scripts/generate_streak.py"
       - "scripts/build.py"
       - ".github/workflows/update-activity.yml"
 
@@ -37,13 +38,16 @@ jobs:
           GITHUB_USERNAME: Denis-Krueger-labs
         run: python scripts/generate_activity.py
 
+      - name: Generate MORI streak card
+        run: python scripts/generate_streak.py
+
       - name: Validate profile assets
         run: python scripts/build.py
 
-      - name: Commit updated graph
+      - name: Commit updated graphs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/activity.svg
+          git add assets/activity.svg assets/streak.svg
           git diff --cached --quiet || git commit -m "chore: update profile activity"
           git push
