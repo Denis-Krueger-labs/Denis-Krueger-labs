@@ -233,13 +233,13 @@ root@portfolio:~$ journalctl --since "365 days ago"
   <img
     align="top"
     width="49.5%"
-    src="https://streak-stats.demolab.com?user=Denis-Krueger-labs&theme=dark&timezone=%2B2&date_format=j%2Fn%5B%2FY%5D&card_width=550&ring=A878E3&border=3B2B4F&stroke=3B2B4F&currStreakNum=E8DFCF&fire=A878E3&sideNums=E8DFCF&sideLabels=877C91&dates=9B6FD3&currStreakLabel=9B6FD3&excludeDaysLabel=877C91&background=0B0D10&hide_total_contributions=true"
-    alt="GitHub Streak"
+    src="./assets/streak.svg"
+    alt="MORI GitHub contribution streak assessment"
   />&nbsp;<img
     align="top"
     width="49.5%"
-    src="https://github-stats-extended.vercel.app/api/top-langs?username=Denis-Krueger-labs&langs_count=4&card_width=690&title_color=9B6FD3&text_color=E8DFCF&border_color=3B2B4F&bg_color=0B0D10&prog_bar_bg_color=161A20&border_radius=14"
-    alt="Most Used Languages"
+    src="./assets/languages.svg"
+    alt="MORI operator language distribution"
   />
 </p>
 
