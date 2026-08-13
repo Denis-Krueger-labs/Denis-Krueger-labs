@@ -7,6 +7,7 @@ for relative_path in (
     "assets/header.svg",
     "assets/footer.svg",
     "assets/activity.svg",
+    "assets/languages.svg",
 ):
     path = ROOT / relative_path
     if not path.exists():
