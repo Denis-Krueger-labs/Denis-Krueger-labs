@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="690" height="245" viewBox="0 0 690 245" role="img" aria-labelledby="title desc">
 <title id="title">MORI streak card</title>
-<desc id="desc">Current streak: 16 days. Longest streak: 16 days. MORI classification: RELIABLE OPERATOR.</desc>
+<desc id="desc">Current streak: 17 days. Longest streak: 17 days. MORI classification: RELIABLE OPERATOR.</desc>
 <rect width="690" height="245" rx="14" fill="#0b0d10"/>
 <rect x="1" y="1" width="688" height="243" rx="13" fill="none" stroke="#3b2b4f"/>
 <text x="28" y="31" fill="#9b6fd3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700">MORI // OPERATOR CONTINUITY</text>
@@ -10,10 +10,10 @@
 <defs>
 <clipPath id="current-streak-clip"><rect x="48" y="74" width="120" height="56"/></clipPath>
 </defs>
-<text x="48" y="118" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">16<set attributeName="opacity" to="0" begin="0s" fill="freeze"/></text>
+<text x="48" y="118" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">17<set attributeName="opacity" to="0" begin="0s" fill="freeze"/></text>
 <g clip-path="url(#current-streak-clip)" opacity="0"><set attributeName="opacity" to="1" begin="0.0s" fill="freeze"/>
 <g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -58;0 -116;0 -174;0 -232;0 -290;0 -348;0 -406;0 -464;0 -522;0 -580;0 -638;0 -696;0 -754;0 -812;0 -870;0 -928" begin="0.0s" dur="1.25s" calcMode="discrete" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 -58;0 -116;0 -174;0 -232;0 -290;0 -348;0 -406;0 -464;0 -522;0 -580;0 -638;0 -696;0 -754;0 -812;0 -870;0 -928;0 -986" begin="0.0s" dur="1.25s" calcMode="discrete" fill="freeze"/>
 <text x="48" y="118" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">0</text>
 <text x="48" y="176" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">1</text>
 <text x="48" y="234" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">2</text>
@@ -31,19 +31,20 @@
 <text x="48" y="930" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">14</text>
 <text x="48" y="988" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">15</text>
 <text x="48" y="1046" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">16</text>
+<text x="48" y="1104" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="44" font-weight="700">17</text>
 </g>
 </g>
 <text x="128" y="108" fill="#a878e3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">DAYS</text>
-<text x="128" y="126" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">04/08 - 19/08</text>
+<text x="128" y="126" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">04/08 - 20/08</text>
 <rect x="432" y="48" width="230" height="92" rx="10" fill="#161a20" stroke="#3b2b4f"/>
 <text x="452" y="72" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700">LONGEST STREAK</text>
 <defs>
 <clipPath id="longest-streak-clip"><rect x="452" y="81" width="100" height="39"/></clipPath>
 </defs>
-<text x="452" y="108" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">16<set attributeName="opacity" to="0" begin="0s" fill="freeze"/></text>
+<text x="452" y="108" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">17<set attributeName="opacity" to="0" begin="0s" fill="freeze"/></text>
 <g clip-path="url(#longest-streak-clip)" opacity="0"><set attributeName="opacity" to="1" begin="1.35s" fill="freeze"/>
 <g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -41;0 -82;0 -123;0 -164;0 -205;0 -246;0 -287;0 -328;0 -369;0 -410;0 -451;0 -492;0 -533;0 -574;0 -615;0 -656" begin="1.35s" dur="1.45s" calcMode="discrete" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 -41;0 -82;0 -123;0 -164;0 -205;0 -246;0 -287;0 -328;0 -369;0 -410;0 -451;0 -492;0 -533;0 -574;0 -615;0 -656;0 -697" begin="1.35s" dur="1.45s" calcMode="discrete" fill="freeze"/>
 <text x="452" y="108" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">0</text>
 <text x="452" y="149" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">1</text>
 <text x="452" y="190" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">2</text>
@@ -61,11 +62,12 @@
 <text x="452" y="682" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">14</text>
 <text x="452" y="723" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">15</text>
 <text x="452" y="764" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">16</text>
+<text x="452" y="805" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700">17</text>
 </g>
 </g>
-<text x="452" y="126" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">04/08 - 19/08</text>
+<text x="452" y="126" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">04/08 - 20/08</text>
 <text x="28" y="166" fill="#a878e3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">RELIABLE OPERATOR</text>
-<text x="662" y="166" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">14 days until TOLERATED OPERATOR</text>
+<text x="662" y="166" text-anchor="end" fill="#877c91" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">13 days until TOLERATED OPERATOR</text>
 <line x1="28" y1="181" x2="662" y2="181" stroke="#3b2b4f" stroke-width="1"/>
 <text x="28" y="207" fill="#9b6fd3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">/•᷅‎‎•᷄\੭</text>
 <text x="110" y="207" fill="#e8dfcf" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">You may, in fact, know what you are doing.</text>
