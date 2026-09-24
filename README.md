@@ -166,10 +166,6 @@ root@portfolio:~$ pacman -Q
 <td width="50%" valign="top">
 <h2><code>05 // INSTALLED PACKAGES</code></h2>
 
-```text
-root@portfolio:~$ pacman -Q
-````
-
 <strong>Languages</strong><br>
 
 <img src="https://img.shields.io/badge/Python-161a20?style=flat-square&logo=python&logoColor=a878e3" alt="Python" />
